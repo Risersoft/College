@@ -1,0 +1,73 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+
+entries:
+- title: Sidebar
+  product: SSS (Student Self Service) Mobile
+  
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Introduction
+    output: single
+    url: /sss-mobile/introduction.html
+    folderitems:
+    -
+  - title: My Profile
+    output: single
+    url: /sss-mobile/my-profile.html
+    folderitems:
+    -
+  - title: My Attendance
+    output: single
+    url: /sss-mobile/my-attendance.html
+    folderitems:
+    -
+  - title: My Subjects
+    output: single
+    url: /sss-mobile/my-subjects.html
+    folderitems:
+    -
+  - title: My Holidays
+    output: single
+    url: /sss-mobile/my-holidays.html
+    folderitems:
+    -
+  - title: My Result
+    output: single
+    url: /sss-mobile/my-result.html
+    folderitems:
+    -
+  - title: Notice Board
+    output: single
+    url: /sss-mobile/noticeboard.html
+    folderitems:
+    -
+  - title: Upcoming Events
+    output: single
+    url: /sss-mobile/upcoming-events.html
+    folderitems:
+    -
+  - title: Upcoming Acitivites
+    output: single
+    url: /sss-mobile/upcoming-activities.html
+    folderitems:
+    -
+  - title: General Environment 
+    output: single
+    url: /sss-mobile/general-environment.html
+    folderitems:
+    -
+  
