@@ -24,6 +24,8 @@ topnav_dropdowns:
       folderitems:
         - title: SSS (Student Self Service) Mobile
           url: /sss-mobile/introduction.html
+        - title: Manager Web App
+          url: /manager-web/introduction.html
         
         
           

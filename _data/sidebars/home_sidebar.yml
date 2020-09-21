@@ -11,4 +11,6 @@ entries:
     - title: SSS(Student Self Service) Mobile
       url: /sss-mobile/introduction.html
       output: web
-    
+    - title: Manager Web App
+      url: /manager-web/introduction.html
+      output: web

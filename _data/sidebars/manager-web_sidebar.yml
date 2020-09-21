@@ -3,7 +3,7 @@
 
 entries:
 - title: Sidebar
-  product: EdNirvana
+  product: Manager Web App
   
   folders:
 
@@ -22,87 +22,70 @@ entries:
 
   - title: Introduction
     output: single
-    url: /ed-web/introduction.html
+    url: /manager-web/introduction.html
     folderitems:
     -
 
-  - title: Admin
+  - title: Master Menu
     
     output: web, pdf
 
     folderitems:
     - title: Dashboard
-      url: /ed-web/admindashboard.html
+      url: /manager-web/dashboard.html
       output: web, pdf
 
-    - title: Course
-      url: /ed-web/admincourse.html
+    - title: Colleges
+      url: /manager-web/colleges.html
       output: web, pdf
       
-    - title: Test
-      url: /ed-web/admintest.html
+    - title: Campus
+      url: /manager-web/campus.html
       output: web, pdf
       
-    - title: Survey
-      url: /ed-web/adminsurvey.html
+    - title: Course-Offered
+      url: /manager-web/course-offered.html
       output: web, pdf
       
-    - title: Assignment
-      url: /ed-web/adminassignment.html
+    - title: Pay Periods
+      url: /manager-web/pay-period.html
       output: web, pdf
       
-    - title: Users
-      url: /ed-web/adminusers.html
+    - title: Classes
+      url: /manager-web/classes.html
       output: web, pdf
       
-  - title: Instructor
+    - title: Holidays
+      url: /manager-web/holiday.html
+      output: web, pdf
+      
+  - title: Students Menu
     
     output: web, pdf
 
     folderitems:
-    - title: Dashboard
-      url: /ed-web/instructordashboard.html
+    - title: Student Person
+      url: /manager-web/student-person.html
       output: web, pdf
 
-    - title: My Courses
-      url: /ed-web/instructormycourses.html
+    - title: Attendance (Class – wise)
+      url: /manager-web/attendance-class–wise.html
       output: web, pdf
-                 
-      
-    - title: My Tests
-      url: /ed-web/instructormytests.html
-      output: web, pdf
-      
-    - title: My Surveys
-      url: /ed-web/instructormysurveys.html
-      output: web, pdf
-      
-    - title: My Assignments
-      url: /ed-web/instructormyassignments.html
-      output: web, pdf
-      
-    
-  - title: Learner
-    
-    output: web, pdf
 
-    folderitems:
+    - title: Import File
+      url: /manager-web/import-file.html
+      output: web, pdf
+      
+    - title: Exam Details
+      url: /manager-web/exam-details.html
+      output: web, pdf
+      
+    - title: Results
+      url: /manager-web/results.html
+      output: web, pdf
+      
     
-    - title: My Courses
-      url: /ed-web/learnermycourses.html
-      output: web, pdf
-      
-    - title: My Tests
-      url: /ed-web/learnermytests.html
-      output: web, pdf
-      
-    - title: My Surveys
-      url: /ed-web/learnermysurveys.html
-      output: web, pdf
-      
-    - title: My Assignments
-      url: /ed-web/learnermyassignments.html
-      output: web, pdf
+
     
       
     
