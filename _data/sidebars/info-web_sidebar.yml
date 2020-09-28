@@ -3,7 +3,7 @@
 
 entries:
 - title: Sidebar
-  product: EdNirvana
+  product: Info Web App
   
   folders:
 
@@ -22,87 +22,79 @@ entries:
 
   - title: Introduction
     output: single
-    url: /ed-web/introduction.html
+    url: /info-web/introduction.html
     folderitems:
     -
 
-  - title: Admin
+  - title: About College Menu
     
     output: web, pdf
 
     folderitems:
-    - title: Dashboard
-      url: /ed-web/admindashboard.html
+    - title: College Details
+      url: /info-web/college-details.html
       output: web, pdf
 
-    - title: Course
-      url: /ed-web/admincourse.html
+    - title: Campus
+      url: /info-web/campus.html
       output: web, pdf
       
-    - title: Test
-      url: /ed-web/admintest.html
+    - title: Asset
+      url: /info-web/asset.html
       output: web, pdf
       
-    - title: Survey
-      url: /ed-web/adminsurvey.html
+    - title: Person
+      url: /info-web/person.html
       output: web, pdf
       
-    - title: Assignment
-      url: /ed-web/adminassignment.html
+    - title: Alumni
+      url: /info-web/alumni.html
       output: web, pdf
       
-    - title: Users
-      url: /ed-web/adminusers.html
+    - title: Committee
+      url: /info-web/committee.html
       output: web, pdf
       
-  - title: Instructor
+    - title: Notice Board
+      url: /info-web/noticeboard.html
+      output: web, pdf
+      
+    - title: NAAC
+      url: /info-web/naac.html
+      output: web, pdf
+      
+  - title: Academic Menu
     
     output: web, pdf
 
     folderitems:
-    - title: Dashboard
-      url: /ed-web/instructordashboard.html
+    - title: Departments
+      url: /info-web/department.html
       output: web, pdf
 
-    - title: My Courses
-      url: /ed-web/instructormycourses.html
+    - title: Course-Offered
+      url: /info-web/course-offered.html
       output: web, pdf
-                 
-      
-    - title: My Tests
-      url: /ed-web/instructormytests.html
-      output: web, pdf
-      
-    - title: My Surveys
-      url: /ed-web/instructormysurveys.html
-      output: web, pdf
-      
-    - title: My Assignments
-      url: /ed-web/instructormyassignments.html
-      output: web, pdf
-      
     
-  - title: Learner
+    - title: Subjects
+      url: /info-web/subject.html
+      output: web, pdf
+       
+    
+  - title: Events Menu
     
     output: web, pdf
 
     folderitems:
     
-    - title: My Courses
-      url: /ed-web/learnermycourses.html
+    - title: Event
+      url: /info-web/event.html
       output: web, pdf
       
-    - title: My Tests
-      url: /ed-web/learnermytests.html
+    - title: Activity
+      url: /info-web/activity.html
       output: web, pdf
-      
-    - title: My Surveys
-      url: /ed-web/learnermysurveys.html
-      output: web, pdf
-      
-    - title: My Assignments
-      url: /ed-web/learnermyassignments.html
-      output: web, pdf
+  
     
       
     
