@@ -21,7 +21,19 @@ Fill the details and click on **Save**.
 ![](/images/studentpersonform.png)
  
 
->**Note:** Student and Person both are created using this form by default. 
+**Note:** Student and Person both are created using this form by default. While creating Person and Student , please follow below instructions :
+
+ >   *Persons:*
+
+     1.Combination of Aadhar number and Account name must be unique where aadhar number is filled.
+ 
+     2.Combination of Email of User and Account name must be unique where emailid is filled.
+
+ >   *Student:*
+
+     1.Combination of Class, Registration Number and Account name must be unique.
+
+     2.Registration Number must be unique where registration number is filled.
 
 ## List
 
