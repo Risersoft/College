@@ -1,0 +1,7 @@
+2020-11-17 15:45:15.328 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/frmImportFileNew/ParamsOutput?PARAMS=H4sIAAAAAAAEACtJTLdVNU4OcAxy9A3Wds7PLUjMq%2FR0UTVOUTUyMgRibZf85JDKglSIiGNKbmZxcWZ%2BHkjG0TnE098PIuGZW5BfVAISVTVKUzVOBQAFe9PVWAAAAA%3D%3D&cid=1
+2020-11-17 15:45:15.335 +05:30 [INF] 15:45:15: Begin InitAppModel
+2020-11-17 15:45:15.347 +05:30 [INF] 15:45:15: End InitAppModel:
+2020-11-17 15:45:15.348 +05:30 [INF] Check Init: True, 
+2020-11-17 15:45:15.349 +05:30 [INF] Check Init: True, 
+2020-11-17 15:45:15.365 +05:30 [INF] Object=frmImportFileNew allowdefault=False allow=True
+2020-11-17 15:45:15.367 +05:30 [INF] Model found for frmImportFileNewModel and Security evaluated with cont=True

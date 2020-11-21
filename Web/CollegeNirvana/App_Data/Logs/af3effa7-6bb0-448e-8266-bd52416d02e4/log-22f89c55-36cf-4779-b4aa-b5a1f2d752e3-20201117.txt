@@ -1,0 +1,59 @@
+2020-11-17 15:49:11.118 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:11.125 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:11.171 +05:30 [INF] 15:49:11: Begin InitAppModel
+2020-11-17 15:49:11.174 +05:30 [INF] 15:49:11: Start Init App List Model
+2020-11-17 15:49:11.177 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:49:11.216 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:49:11.219 +05:30 [INF] Appsystem copied
+2020-11-17 15:49:11.233 +05:30 [INF] Finish Populate Security
+2020-11-17 15:49:11.246 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:49:11.278 +05:30 [INF] 15:49:11: End Init App List Model
+2020-11-17 15:49:11.291 +05:30 [INF] Generating App Var List
+2020-11-17 15:49:11.293 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:49:11.332 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:49:11.333 +05:30 [INF] Appsystem copied
+2020-11-17 15:49:11.341 +05:30 [INF] Finish Populate Security
+2020-11-17 15:49:11.354 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:49:11.366 +05:30 [INF] Populating Conf Dataset
+2020-11-17 15:49:11.414 +05:30 [INF] Populating Security And workflow
+2020-11-17 15:49:11.462 +05:30 [INF] Starting Menu Build ..
+2020-11-17 15:49:11.464 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:11.473 +05:30 [INF] AppMenu Expand OK
+2020-11-17 15:49:11.475 +05:30 [INF] App Menu Build OK
+2020-11-17 15:49:11.476 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:11.480 +05:30 [INF] Object=listClass allowdefault=False allow=True
+2020-11-17 15:49:11.480 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:49:11.480 +05:30 [INF] Object=DashMGR allowdefault=False allow=True
+2020-11-17 15:49:11.480 +05:30 [INF] Object=listCampus allowdefault=False allow=True
+2020-11-17 15:49:11.482 +05:30 [INF] Object=listImportfile allowdefault=False allow=True
+2020-11-17 15:49:11.482 +05:30 [INF] Object=ListResult allowdefault=False allow=True
+2020-11-17 15:49:11.482 +05:30 [INF] Object=ListCourse allowdefault=False allow=True
+2020-11-17 15:49:11.482 +05:30 [INF] Object=listpayperiod allowdefault=False allow=True
+2020-11-17 15:49:11.484 +05:30 [INF] Object=listHoliday allowdefault=False allow=True
+2020-11-17 15:49:11.485 +05:30 [INF] Object=listattendClass allowdefault=False allow=True
+2020-11-17 15:49:11.506 +05:30 [INF] Object=ListExamDet allowdefault=False allow=True
+2020-11-17 15:49:11.518 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-17 15:49:11.519 +05:30 [INF] Finish Menu Build OK
+2020-11-17 15:49:11.521 +05:30 [INF] 15:49:11: End InitAppModel:
+2020-11-17 15:49:11.523 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:11.527 +05:30 [INF] Begin Execute task: 22f89c55-36cf-4779-b4aa-b5a1f2d752e3 for tenantid:af3effa7-6bb0-448e-8266-bd52416d02e4
+2020-11-17 15:49:11.530 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:31.362 +05:30 [INF] Executing Pre Local
+2020-11-17 15:49:31.368 +05:30 [INF] Got Message:
+2020-11-17 15:49:31.392 +05:30 [INF] Executing Server
+2020-11-17 15:49:34.264 +05:30 [INF] Ensure Directory: E:\vs.com\College\Web\CollegeNirvana\App_Data\downloads
+2020-11-17 15:49:34.304 +05:30 [INF] Downloading 164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx to E:\vs.com\College\Web\CollegeNirvana\App_Data\downloads\164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx
+2020-11-17 15:49:34.432 +05:30 [INF] E:\vs.com\College\Web\CollegeNirvana\App_Data\downloads\164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx Written
+2020-11-17 15:49:34.754 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:34.832 +05:30 [INF] Reading E:\vs.com\College\Web\CollegeNirvana\App_Data\downloads\164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx
+2020-11-17 15:49:34.909 +05:30 [INF] Begin Open
+2020-11-17 15:49:35.193 +05:30 [INF] End Open
+2020-11-17 15:49:59.999 +05:30 [INF] Got Message:Found Zero Records. Looking for sheet Admission Template. Please Check Format.
+Your import task for file '164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx' has been executed. 
+Got Message: Found Zero Records. Looking for sheet Admission Template. Please Check Format.
+File Details are available <a href='http://EduDemo1./frmImportFile/Edit/38cdc24e-bc51-4b91-9c24-e7afd8b33608?cid=1'>here</a>.
+Found Zero Records. Looking for sheet Admission Template. Please Check Format.
+2020-11-17 15:50:00.190 +05:30 [INF] Executing Post local
+2020-11-17 15:50:00.208 +05:30 [INF] Got Message:
+2020-11-17 15:50:00.268 +05:30 [INF] Check Init: True, 
+2020-11-17 15:50:00.323 +05:30 [INF] Disposing

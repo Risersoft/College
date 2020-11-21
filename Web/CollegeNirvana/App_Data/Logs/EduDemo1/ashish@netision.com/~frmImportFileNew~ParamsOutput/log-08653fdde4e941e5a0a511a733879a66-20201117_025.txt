@@ -1,0 +1,8 @@
+2020-11-17 15:45:14.153 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/frmImportFileNew/ParamsOutput?PARAMS=H4sIAAAAAAAEACtJTLdVNU4OcAxy9A3Wds7PLUjMq%2FR0UTVOUTUyMgRibZf85JDKglSIiGNKbmZxcWZ%2BHkjG0TnE098PIuGZW5BfVAISVTVKUzVOBQAFe9PVWAAAAA%3D%3D&cid=1
+2020-11-17 15:45:14.161 +05:30 [INF] 15:45:14: Begin InitAppModel
+2020-11-17 15:45:14.220 +05:30 [INF] 15:45:14: End InitAppModel:
+2020-11-17 15:45:14.221 +05:30 [INF] Check Init: True, 
+2020-11-17 15:45:14.223 +05:30 [INF] Check Init: True, 
+2020-11-17 15:45:14.231 +05:30 [INF] Object=frmImportFileNew allowdefault=False allow=True
+2020-11-17 15:45:14.233 +05:30 [INF] Model found for frmImportFileNewModel and Security evaluated with cont=True
+2020-11-17 15:45:14.266 +05:30 [INF] Enqueue message: {"tenantid":"af3effa7-6bb0-448e-8266-bd52416d02e4","apitaskid":"c023f5cd-de97-45a9-b778-5860d0351ee1","basehost":"dev.mylocalhost.in"}

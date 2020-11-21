@@ -1,0 +1,322 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmStudentModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<link href="~/Content/custom-calander.css" rel="stylesheet" />
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/jQueryUI-datetimepicker.js"></script>
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">Student Details</h5>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12" style="text-align:center;font-weight: 700;font-size:25px;">{{fullName}}</div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#027fbd"><span style="padding:10px;">Details</span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Serial Number<span class="red">*</span></label>
+                <input type="text" name="serialno" ng-model="studentInfo.SerialNo" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.serialno.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Roll Number<span class="red">*</span></label>
+                <input type="text" name="rNumber" ng-model="studentInfo.RollNum" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.rNumber.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Admission Date<span class="red">*</span></label>
+                <div class="input-group">
+                    <input type="text" name="admndate" ng-model="studentInfo.AdmissionDate" class="form-control admnDate" style="max-width:100%" aria-describedby="basic-addon1" required ng-class="{true: 'error'}[submitted() && userform.admndate.$invalid]" />
+                    <label class="input-group-addon btn" for="date" style="position: absolute; margin-left: 310px; z-index:9">
+                        <span class="fa fa-calendar open-datetimepicker" id="basic-addon1" style="cursor:pointer"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Card Number</label>
+                <input type="text" name="cardnumber" ng-model="studentInfo.CardNum" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Class<span class="red">*</span></label>
+                <select class="form-control" name="class" ng-model="studentInfo.ClassIDSelected" ng-options="c.ClassName for c in dsCombo.Class track by c.ClassID" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.class.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Campus<span class="red">*</span></label>
+                <select class="form-control" name="campus" ng-model="studentInfo.CampusIDSelected" ng-options="c.DispName for c in dsCombo.campus track by c.CampusID" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.campus.$invalid]"></select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Shift<span class="red">*</span></label>
+                <select class="form-control" name="shift" ng-model="studentInfo.ShiftIDSelected" ng-options="sh.Shift for sh in dsCombo.Shift track by sh.ShiftId" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.shift.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Leave Date</label>
+                <div class="input-group">
+                    <input type="text" ng-model="studentInfo.LeaveDate" class="form-control admnDate" style="max-width:100%" aria-describedby="basic-addon1" />
+                    <label class="input-group-addon btn" for="date" style="position: absolute; margin-left: 310px; z-index:9">
+                        <span class="fa fa-calendar open-datetimepicker" id="basic-addon1" style="cursor:pointer"></span>
+                    </label>
+                </div>
+                @*<input type="text" name="leavedate" ng-model="studentInfo.LeaveDate" class="form-control" style="min-width: 100%;" />*@
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Punch</label>
+                @*<input type="text" name="punch" ng-model="studentInfo.PunchEnabled" class="form-control" style="min-width: 100%;" />*@
+                <select class="form-control" name="punch" ng-model="studentInfo.PunchEnabledSelected" ng-options="p.description for p in punch track by p.value" style="min-width: 100%;"></select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Registration Number<span class="red">*</span></label>
+                <input type="text" name="registrationnum" ng-model="studentInfo.RegistrationNum" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.registrationnum.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Admitted As</label>
+                <select class="form-control" ng-model="studentInfo.AdmittedAsSelected" ng-options="aa.Descrip for aa in dsCombo.AdmittedAs track by aa.Code" style="min-width: 100%;"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Admission Type</label>
+                <select class="form-control" ng-model="studentInfo.AdmissionTypeSelected" ng-options="at.descriptot for at in dsCombo.AdmissionType track by at.codeword" style="min-width: 100%;"></select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">List Number</label>
+                <input type="text" name="listnumber" ng-model="studentInfo.ListNumber" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Subject Group</label>
+                <select class="form-control" ng-model="studentInfo.SubjectGroupSelected" ng-options="sg.Descrip for sg in dsCombo.SubGroup track by sg.Code" style="min-width: 100%;"></select>
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#027fbd"><span style="padding:10px;">Subject</span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                <table id="tbl" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Subject Name</th>
+                            <th>Section</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="sub in Subject track by $index">
+                            <td>{{$index+1}}.</td>
+                            <td>{{sub.SubjectName}}</td>
+                            <td><input type="text" name="section" ng-model="sub.Section" class="form-control" style="min-width: 100%;" /></td>
+                            <td><a href="javascript:void(0)"><i class="fa fa-trash" ng-click="delete($index, 'sub')"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1">
+                <div style="float:right; margin-bottom:5px;">
+                    <button type="button" id="btnAddNew" Class="btn btn-default btnf" ng-click="commonDialog('dialogUsers', 'Select Subject','subject')"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#027fbd"><span style="padding:10px;">Paper</span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <div style="float:right; margin-bottom:5px;">
+                    <button type="button" id="btnAddNew" Class="btn btn-default btnf" ng-click="commonDialog('dialogUsers', 'Select Paper','paper')"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="table-responsive-md">
+                    <table id="tbl" class="table table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Form Number</th>
+                                <th>Exam Roll No.</th>
+                                <th>Student Type</th>
+                                <th>Paper Name</th>
+                                <th>Paper Code</th>
+                                <th>Max Marks</th>
+                                <th>Min Marks</th>
+                                <th>Marks Obtained</th>
+                                <th>Division</th>
+                                <th>Is Back</th>
+                                <th>Is Absent</th>
+                                <th>Result</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="pp in Paper track by $index">
+                                <td>{{$index+1}}.</td>
+                                <td><input type="text" name="frmNumber" ng-model="pp.FormNum" class="form-control" style="min-width: 100%;" /></td>
+                                <td><input type="text" name="rollNumber" ng-model="pp.ExamRollNum" class="form-control" style="min-width: 100%;" /></td>
+                                <td><select name="stutype" ng-model="pp.StudentTypeSelected" style="width:120px;" class="form-control" ng-options="st.Descrip for st in dsCombo.StudentType track by st.codeword"></select></td>
+                                <td>{{pp.SubjectName}}</td>
+                                <td>{{pp.PaperCode}}</td>
+                                <td>{{pp.MaxMarks}}</td>
+                                <td>{{pp.MinMarks}}</td>
+                                <td><input type="text" name="marksobtained" ng-model="pp.MarksObtained" class="form-control" style="min-width: 100%;" /></td>
+                                <td><input type="text" name="division" ng-model="pp.Division" class="form-control" style="min-width: 100%;" /></td>
+                                <td><select name="back" ng-model="pp.IsBackSelected" class="form-control" style="width:80px;" ng-options="yn.description for yn in yesNo track by yn.value"></select></td>
+                                <td><select name="absent" ng-model="pp.IsAbsentSelected" class="form-control" style="width:80px;" ng-options="yn.description for yn in yesNo track by yn.value"></select></td>
+                                <td><select name="passed" ng-model="pp.IsPassedSelected" class="form-control" style="width:100px;" ng-options="pf.description for pf in passfail track by pf.value"></select></td>
+                                <td><a href="javascript:void(0)"><i class="fa fa-trash" ng-click="delete($index, 'paper')"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+
+        <div id="dialogUsers"></div>
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        $(function () {
+            $(".admnDate").datetimepicker({
+                format: 'Y/m/d',
+                timepicker: false,
+            }).attr('readonly', 'readonly');
+        });
+
+        rsApp.controller('FormController', function ($scope, $http, $filter) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //set values in scope
+                $scope.studentInfo = $scope.model.dsForm.DT[0];
+                //Student Full Name
+                $scope.fullName = $scope.model.ModelParams[0].ParamValue;
+                //Date Format
+                $scope.studentInfo.AdmissionDate = $scope.studentInfo.AdmissionDate == undefined ? "" : new moment($scope.studentInfo.AdmissionDate).format("YYYY-MM-D");
+                $scope.studentInfo.LeaveDate = $scope.studentInfo.LeaveDate == undefined ? "" : new moment($scope.studentInfo.LeaveDate).format("YYYY-MM-D");
+                //Bind Drop Down
+                $scope.dsCombo = $scope.model.dsCombo;
+                $scope.ValueLists = $scope.model.ValueLists;
+                //Bind Subject and Paper Table
+                $scope.Subject = $scope.model.dsForm.StuSubject;
+                $scope.Paper = $scope.model.dsForm.StuPaper;
+                //punch dropdown with true false
+                $scope.punch = [{ value: false, description: false }, { value: true, description: true }];
+
+                //Set Seleted Value
+                @Html.RenderLookup("studentInfo", Model, Model.dsForm.Tables[0]);
+
+                //Yes No DropDown
+                $scope.yesNo = [{ value: false, description: "No" }, { value: true, description: "Yes" }];
+                //Pass Fail Dropdown
+                $scope.passfail = [{ value: false, description: "Failed" }, { value: true, description: "Passed" }];
+                if (Array.isArray($scope.Paper) && $scope.Paper.length) {
+                    for (var i = 0; i < $scope.Paper.length; i++) {
+                        $scope.Paper[i].StudentTypeSelected = $.grep($scope.dsCombo.StudentType, function (item, index) { return item.codeword == $scope.Paper[i].StudentType })[0];
+                        $scope.Paper[i].IsBackSelected = $.grep($scope.passfail, function (item, index) { return item.value == $scope.Paper[i].IsBack })[0];
+                        $scope.Paper[i].IsAbsentSelected = $.grep($scope.yesNo, function (item, index) { return item.value == $scope.Paper[i].IsAbsent })[0];
+                        $scope.Paper[i].IsPassedSelected = $.grep($scope.yesNo, function (item, index) { return item.value == $scope.Paper[i].IsPassed })[0];
+                    }
+                }
+            }
+
+            loadmodel($scope.model);
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'student', ID: $scope.model.dsForm.DT[0].StudentID, AcceptWarning: false };
+                return payload;
+            };
+
+            //OPEN DIALOG COMMON CODE
+            $scope.commonDialog = function (dialogName, dialogTitle, keyValue) {
+                var payload;
+                $scope.IsInitializing = true;
+                $scope.result = '';
+
+                if (keyValue == "paper") {
+                    if (Array.isArray($scope.Subject) && $scope.Subject.length > 0) {
+                        payload = { SubjectID: $scope.Subject[0].SubjectID, PaperID: 0 };
+                    }
+                    else {
+                        payload = { SubjectID: 0, PaperID: 0 };
+                    }
+                } else {
+                    payload = { ClassID: $scope.model.dsForm.DT[0].ClassID, SubjectID: 0 };
+                }
+
+                var url = '/frmStudent/ParamsModel' + location.search;
+                payload = JSON.stringify(payload);
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var payloaddata = { key: keyValue, Params: payload, __RequestVerificationToken: token };
+                igGridDataPostData(url, payloaddata, dialogName, dialogTitle, keyValue);
+            };
+
+            //Bind Grid Data
+            $scope.gridfxn = function (rowData, allData, keyValue) {
+                if (keyValue == "paper") {
+                    for (var i = 0; i < rowData.length; i++) {
+                        $scope.Paper.push($.grep(allData, function (item, index) { return item.ig_pk == rowData[i].id })[0]);
+                    }
+                } else {
+                    for (var i = 0; i < rowData.length; i++) {
+                        $scope.Subject.push($.grep(allData, function (item, index) { return item.ig_pk == rowData[i].id })[0]);
+                    }
+                }
+            }
+
+            $scope.calculatemodel = function () { };
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            $scope.delete = function (index, type) {
+                if (type == "sub") {
+                    $scope.Subject.splice(index, 1);
+                }
+                if (type == "paper") {
+                    $scope.Paper.splice(index, 1);
+                }
+            }
+
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}
+

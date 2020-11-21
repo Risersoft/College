@@ -1,0 +1,255 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmAlumniModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        <input type="hidden" id="fileStatus" />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} Alumni</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Name<span class="red">*</span></label>
+                <input type="text" name="alumniname" ng-model="alumniInfo.Name" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.alumniname.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Passing Year</label>
+                <select name="nature" ng-model="alumniInfo.FinYearIDSelected" class="form-control" style="min-width: 100%;" ng-options="fy.descrip for fy in dsCombo.finyears track by fy.descrip"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Course<span class="red">*</span></label>
+                <select name="courseid" ng-model="alumniInfo.DegreeCourseIDSelected" class="form-control" style="min-width: 100%;" ng-options="dcou.Course for dcou in dsCombo.DegreeCourse track by dcou.Course" required ng-class="{true: 'error'}[submitted() && userform.courseid.$invalid]" ng-change="changeCourse(alumniInfo.DegreeCourseIDSelected)"></select>
+            </div>
+        </div>
+        <div class="form-row" ng-show="isCourse">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#f8f9fa"><span style="padding:10px;"><b>{{courseName}}</b></span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">First Subject <b>(If Applicable)</b></label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.Subject1" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Second Subject <b>(If Applicable)</b></label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.Subject2" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Third Subject <b>(If Applicable)</b></label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.Subject3" class="form-control" style="min-width: 100%;" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Job Profile</label>
+                <select name="companyid" ng-model="alumniInfo.JobProfileSelected" class="form-control" style="min-width: 100%;" ng-options="jp.DisplayText for jp in ValueLists.JobProfile.ValueListItems track by jp.DisplayText"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Job Profile Details</label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.JobProfileDetail" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Email Address</label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.Email" class="form-control clsemail" style="min-width: 100%;" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="inputEmail4">Address</label>
+                <input type="text" name="alumniName" ng-model="alumniInfo.Address" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Contact No.<span class="red">*</span></label>
+                <input type="text" name="contactnumber" ng-model="alumniInfo.ContactNo" class="form-control numeric" maxlength="10" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.contactnumber.$invalid]" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                <label for="inputEmail4">Student Voice</label>
+                <input type="text" name="studentvoice" ng-model="alumniInfo.StudentVoice" class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-1" style="margin-top: 30px;">
+                <span><input type="checkbox" name="isvisiblelearner" ng-model="alumniInfo.IsApproved"> Approved</span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="container my-12">
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                    <!-- Accordion card -->
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="PictureInfo">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#picture"
+                               aria-expanded="false" aria-controls="picture">
+                                <h5 class="mb-0">
+                                    Photo <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+                        <!-- Card body -->
+                        <div id="picture" class="collapse" role="tabpanel" aria-labelledby="PictureInfo"
+                             data-parent="#accordionEx">
+                            <div class="card-body">
+                                <div class="form-row" style="margin-top: 5px;">
+                                    <div class="form-group col-md-2">
+                                        <img ng-src="{{imageUrl}}" id="imgInp" alt="sample Image" style="width: 130px;">
+                                    </div>
+                                    <div class="form-group col-md-9">
+                                        <label for="staticEmail" class="col-form-label" style="margin-left: 25px;">File</label>
+                                        <input type="file" id="attach_filename" name="attach_filename" class="form-control" accept=".jpg, .jpeg, .png" autocomplete="off" style="max-width: 88%;margin-top: -35px;margin-left: 80px;">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button type="button" id="btnAlumniPic" class="btn btn-default btnf" ng-click="UploadAlumniPic()">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+                </div>
+                <!-- Accordion wrapper -->
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+
+        <!-- Modal -->
+        <div class="modal fade" id="errorModel" role="dialog" style="z-index:99999">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Error</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 16px;">Please check your uploaded file extension. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnClose" class="btn btn-default" ng-click="closeErrorDialog()">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        rsApp.controller('FormController', function ($scope, $http, usSpinnerService) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Student Model in scope
+                $scope.alumniInfo = $scope.model.dsForm.DT[0];
+                //Bind Drop Downs
+                $scope.dsCombo = $scope.model.dsCombo;
+                $scope.ValueLists = $scope.model.ValueLists;
+
+                //Bind Initial Image
+                if ($scope.alumniInfo.PicAlumni != undefined) {
+                    $scope.url = '/frmAlumni/ParamsOutput' + location.search;
+                    $scope.payload = { serverPath: $scope.alumniInfo.PicAlumni, AlumniId: $scope.alumniInfo.AlumniId };
+                    payload = JSON.stringify($scope.payload);
+                    var payloaddata = { key: 'download', Params: payload, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() };
+
+                    $.post($scope.url, payloaddata, function (result) {
+                        toDataURL(result.Data, function (dataUrl) {
+                            $('#imgInp').attr('src', dataUrl);
+                        });
+                    });
+                }
+                else {
+                    $scope.imageUrl = "/Content/Images/images.jpg";
+                }
+
+                //Bind Dropdown in edit mode
+                @Html.RenderLookup("alumniInfo", Model, Model.dsForm.Tables[0]);
+                //Assign Upload Files
+                $scope.UploadFiles = [];
+            }
+
+            loadmodel($scope.model);
+
+            $scope.changeCourse = function (cVal) {
+                $scope.isCourse = true;
+                $scope.courseName = cVal.Course;
+            }
+
+            $scope.UploadAlumniPic = function () {
+                var fileExtn = '';
+                var ctrlName = '';
+                var hdnControl = '';
+                var statusType = '';
+
+                fileExtn = $('#attach_filename').val().split('.').pop().toLowerCase();
+                // For Progress baar
+                ctrlName = $('#attach_filename');
+                filec = $('#attach_filename').val();
+                hdnControl = 'attach_filename';
+                statusType = 'studentPic';
+
+                if (fileExtn !== "jpeg" && fileExtn !== "jpg" && fileExtn !== "png") {
+                    $('#errorModel').modal('toggle');
+                    $scope.isbtnAttachmentUpload = "";
+                    return false;
+                }
+
+                var url = '/frmAlumni/ParamsOutput' + location.search;
+                var payload = { filename: filec };
+                payload = JSON.stringify(payload);
+                var payloaddata = { key: 'sas', Params: payload, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() };
+
+                $scope.UploadFile(url, payloaddata, true, ctrlName, hdnControl, statusType);
+            }
+
+            $scope.calculatemodel = function () {
+                if (Array.isArray($scope.UploadFiles) && $scope.UploadFiles.length) {
+                    $scope.model.dsForm.DT[0].PicAlumni = $scope.UploadFiles[0].blobname;
+                }
+            }
+
+            $scope.cleanupmodel = function (datamodel) {
+                console.log(datamodel);
+            }
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'alumni', ID: $scope.model.dsForm.DT[0].AlumniID, AcceptWarning: false };
+                return payload;
+            };
+
+            @Html.RenderFile("~/scripts/uploadCollegeFiles.js");
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}

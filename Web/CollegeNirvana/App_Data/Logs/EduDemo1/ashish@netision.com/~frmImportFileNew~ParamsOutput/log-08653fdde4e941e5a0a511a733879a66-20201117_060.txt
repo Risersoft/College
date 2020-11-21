@@ -1,0 +1,14 @@
+2020-11-17 15:49:10.703 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/frmImportFileNew/ParamsOutput?PARAMS=H4sIAAAAAAAEACtJTLdVNU4OcAxy9A3Wds7PLUjMq%2FR0UTVOUTUyMgRibZf85JDKglSIiGNKbmZxcWZ%2BHkjG0TnE098PIuGZW5BfVAISVTVKUzVOBQAFe9PVWAAAAA%3D%3D&cid=1
+2020-11-17 15:49:10.713 +05:30 [INF] 15:49:10: Begin InitAppModel
+2020-11-17 15:49:10.731 +05:30 [INF] 15:49:10: End InitAppModel:
+2020-11-17 15:49:10.734 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:10.736 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:10.739 +05:30 [INF] Object=frmImportFileNew allowdefault=False allow=True
+2020-11-17 15:49:10.740 +05:30 [INF] Model found for frmImportFileNewModel and Security evaluated with cont=True
+2020-11-17 15:49:31.530 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/frmImportFileNew/ParamsOutput?PARAMS=H4sIAAAAAAAEACtJTLdVNU4OcAxy9A3Wds7PLUjMq%2FR0UTVOUTUyMgRibZf85JDKglSIiGNKbmZxcWZ%2BHkjG0TnE098PIuGZW5BfVAISVTVKUzVOBQAFe9PVWAAAAA%3D%3D&cid=1
+2020-11-17 15:49:31.654 +05:30 [INF] 15:49:31: Begin InitAppModel
+2020-11-17 15:49:31.941 +05:30 [INF] 15:49:31: End InitAppModel:
+2020-11-17 15:49:32.005 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:32.126 +05:30 [INF] Check Init: True, 
+2020-11-17 15:49:32.186 +05:30 [INF] Object=frmImportFileNew allowdefault=False allow=True
+2020-11-17 15:49:32.284 +05:30 [INF] Model found for frmImportFileNewModel and Security evaluated with cont=True

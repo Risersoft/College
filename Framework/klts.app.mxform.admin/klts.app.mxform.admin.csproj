@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;Debug2</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="My Project\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+<Choose>
+    <When Condition="'$(Configuration)' == 'Debug2'">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\Mobile\Risersoft.Framework\Risersoft.Framework.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.portable\risersoft.shared.portable.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared\risersoft.shared.vbproj" />
+	  <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.resources\risersoft.shared.resource.vbproj" />
+	    <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.resources\risersoft.shared.dal.vbproj" />
+  </ItemGroup>
+  </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="risersoft.shared">
+          <HintPath>..\..\..\common\depends\risersoft.shared.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.portable">
+          <HintPath>..\..\..\common\depends\risersoft.shared.portable.dll</HintPath>
+        </Reference>
+        <Reference Include="Risersoft.Framework">
+          <HintPath>..\..\..\common\depends\Risersoft.Framework.dll</HintPath>
+        </Reference>
+		 <Reference Include="risersoft.shared.resource">
+          <HintPath>..\..\..\common\depends\risersoft.shared.resource.dll</HintPath>
+        </Reference>
+		<Reference Include="risersoft.shared.dal">
+          <HintPath>..\..\..\common\depends\risersoft.shared.dal.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+</Project>

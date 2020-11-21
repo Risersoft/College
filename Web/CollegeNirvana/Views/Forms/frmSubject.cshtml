@@ -1,0 +1,248 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmSubjectModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<link href="http://ej2.syncfusion.com/aspnetmvc/Content/styles/bootstrap4.css" rel="stylesheet" />
+<script src="http://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} Subject</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Subject Name<span class="red">*</span></label>
+                <input type="text" name="activityName" ng-model="subjectInfo.SubjectName" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.activityName.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Class<span class="red">*</span></label>
+                <select name="class" ng-model="subjectInfo.ClassIDSelected" class="form-control" style="min-width: 100%;" ng-options="cls.ClassName for cls in class track by cls.ClassName" required ng-class="{true: 'error'}[submitted() && userform.class.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Language</label>
+                <select name="companyid" ng-model="subjectInfo.LanguageSelected" class="form-control" style="min-width: 100%;" ng-options="lan.DisplayText for lan in language track by lan.DisplayText"></select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Department<span class="red">*</span></label>
+                <select name="deptid" ng-model="subjectInfo.DeptIDSelected" class="form-control" style="min-width: 100%;" ng-options="dept.deptname for dept in department track by dept.deptname" required ng-class="{true: 'error'}[submitted() && userform.deptid.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Category</label>
+                <select name="category" ng-model="subjectInfo.CategorySelected" class="form-control" style="min-width: 100%;" ng-options="cat.DisplayText for cat in category track by cat.DisplayText"></select>
+            </div>
+            <div class="form-group col-md-4" style="margin-top: 37px;">
+                <label for="inputEmail4">Has Practical</label>
+                <input type="checkbox" ng-model="subjectInfo.HasPractical" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#027fbd"><span style="padding:10px;">Paper</span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                <table id="tblFamilyMember" class="table table-sm" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Paper Code</th>
+                            <th>Paper Name</th>
+                            <th>Max Marks</th>
+                            <th>Min Marks</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pep in Paper track by $index" ng-show="Paper.length > 0">
+                            <td>{{$index + 1}}.</td>
+                            <td><input type="text" class="form-control" ng-model="pep.PaperCode" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control" ng-model="pep.PaperName" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control numeric" ng-model="pep.MaxMarks" maxlength="3" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control numeric" ng-model="pep.MinMarks" maxlength="2" ng-disabled="isMode" /></td>
+                            <td><a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deletePaper($index)"></i></a></td>
+                        </tr>
+                        <tr ng-show="!Paper.length">
+                            <td colspan="5" style="text-align:center;font-size: 20px;">No Records Found...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="form-group col-md-1">
+                <div style="float:right; margin-bottom:5px;">
+                    <button type="button" id="btnAddNew" Class="btn btn-default btnf" ng-click="addPaperInfo(Paper.length)"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#027fbd"><span style="padding:10px;">Time Table</span></p></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                <table id="tblFamilyMember" class="table table-sm" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="width:1%">#</th>
+                            <th style="width:20%">Teacher</th>
+                            <th style="width:30%">Days</th>
+                            <th style="width:10%">Period</th>
+                            <th style="width:10%">Time</th>
+                            <th style="width:10%">Room No.</th>
+                            <th style="width:10%">Section</th>
+                            <th style="width:9%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tmtbl in TimeTable track by $index" ng-show="TimeTable.length > 0">
+                            <td>{{$index + 1}}.</td>
+                            <td>{{tmtbl.FullName}}</td>
+                            <td><input type="text" class="form-control" ng-model="tmtbl.Days" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control" ng-model="tmtbl.Period" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control" ng-model="tmtbl.Time" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control" ng-model="tmtbl.RoomNo" ng-disabled="isMode" /></td>
+                            <td><input type="text" class="form-control" ng-model="tmtbl.Section" ng-disabled="isMode" /></td>
+                            <td>
+                                <a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deleteTimeTable($index)"></i></a>
+                            </td>
+                        </tr>
+                        <tr ng-show="!TimeTable.length">
+                            <td colspan="8" style="text-align:center;font-size: 20px;">No Records Found...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group col-md-1">
+                <div style="float:right; margin-bottom:5px;">
+                    <button type="button" id="btnAddNew" Class="btn btn-default btnf" ng-click="commonDialog('','dialogTimeTable', 'Select','timetable')"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+
+        <div id="dialogTimeTable"></div>
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        rsApp.controller('FormController', function ($scope, $http) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Subject Model in scope
+                $scope.subjectInfo = $scope.model.dsForm.DT[0];
+                //Bind DropDown
+                $scope.class = $scope.model.dsCombo.Class;
+                $scope.department = $scope.model.dsCombo.dept;
+                $scope.language = $scope.model.ValueLists.Language.ValueListItems;
+                $scope.category = $scope.model.ValueLists.Category.ValueListItems;
+
+                //Dynamically Add Rows in Table of papar and Time Table
+                if (Array.isArray($scope.model.dsForm.Paper) && $scope.model.dsForm.Paper.length)
+                    $scope.Paper = $scope.model.dsForm.Paper
+                else
+                    $scope.Paper = [];
+
+                if (Array.isArray($scope.model.dsForm.TimeTable) && $scope.model.dsForm.TimeTable.length)
+                    $scope.TimeTable = $scope.model.dsForm.TimeTable
+                else
+                    $scope.TimeTable = [];
+
+                //Bind Dropdown in edit mode
+                $scope.subjectInfo.ClassIDSelected = $.grep($scope.class, function (item, index) { return item.ClassID == $scope.subjectInfo.ClassID })[0];
+                $scope.subjectInfo.DeptIDSelected = $.grep($scope.department, function (item, index) { return item.deptid == $scope.subjectInfo.DeptID })[0];
+                $scope.subjectInfo.LanguageSelected = $.grep($scope.language, function (item, index) { return item.DataValue == $scope.subjectInfo.Language })[0];
+                $scope.subjectInfo.CategorySelected = $.grep($scope.category, function (item, index) { return item.DataValue == $scope.subjectInfo.Category })[0];
+            }
+
+            loadmodel($scope.model);
+
+            $scope.addPaperInfo = function () {
+                var paper = {};
+                $scope.Paper.push(paper);
+            }
+
+            $scope.deletePaper = function (index) {
+                $scope.Paper.splice(index, 1);
+            }
+
+            //OPEN DIALOG COMMON CODE
+            $scope.commonDialog = function (val, dialogName, dialogTitle, keyValue) {
+                var payload;
+                $scope.IsInitializing = true;
+                $scope.result = '';
+
+                if (keyValue == "timetable") {
+                    payload = { PersonID: '0' }; // not required here
+                }
+
+                var url = '/frmSubject/ParamsModel' + location.search;
+                payload = JSON.stringify(payload);
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var payloaddata = { key: keyValue, Params: payload, __RequestVerificationToken: token };
+                igGridDataPostData(url, payloaddata, dialogName, dialogTitle, keyValue);
+            };
+
+            //Bind Grid Data
+            $scope.gridfxn = function (rowData, allData, keyValue) {
+                if (keyValue == "timetable") {
+                    for (var i = 0; i < rowData.length; i++) {
+                        $scope.TimeTable.push(allData[rowData[i].index]);
+                        $scope.TimeTable[i].TeacherPersonID = allData[rowData[i].index].Personid;
+                    }
+                }
+            }
+
+            $scope.deleteTimeTable = function (index) {
+                $scope.TimeTable.splice(index, 1);
+            };
+
+            $scope.calculatemodel = function () {
+                $scope.model.dsForm.Paper = $scope.Paper;
+                $scope.model.dsForm.TimeTable = $scope.TimeTable;
+            };
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'subject', ID: $scope.model.dsForm.DT[0].SubjectID, AcceptWarning: false };
+                return payload;
+            };
+
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}

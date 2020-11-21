@@ -1,0 +1,5 @@
+2020-11-17 15:50:00.398 +05:30 [INF] End Execute task: 22f89c55-36cf-4779-b4aa-b5a1f2d752e3 for tenantid:af3effa7-6bb0-448e-8266-bd52416d02e4 with message: Found Zero Records. Looking for sheet Admission Template. Please Check Format.
+Your import task for file '164a36f4-e93a-48e7-9314-848fb3025f91-ConvertJson-82207AM--38cdc24e-bc51-4b91-9c24-e7afd8b33608.xlsx' has been executed. 
+Got Message: Found Zero Records. Looking for sheet Admission Template. Please Check Format.
+File Details are available <a href='http://EduDemo1./frmImportFile/Edit/38cdc24e-bc51-4b91-9c24-e7afd8b33608?cid=1'>here</a>.
+Found Zero Records. Looking for sheet Admission Template. Please Check Format.

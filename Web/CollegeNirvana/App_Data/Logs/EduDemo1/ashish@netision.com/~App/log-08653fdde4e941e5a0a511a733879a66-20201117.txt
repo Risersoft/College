@@ -1,0 +1,45 @@
+2020-11-17 15:18:18.030 +05:30 [INF]  -------- Begin Request ------ http://edudemo1.dev.mylocalhost.in:56502/App
+2020-11-17 15:21:31.488 +05:30 [INF]  -------- Begin Request ------ http://edudemo1.dev.mylocalhost.in:56502/App
+2020-11-17 15:31:58.728 +05:30 [INF]  -------- Begin Request ------ http://edudemo1.dev.mylocalhost.in:56502/App
+2020-11-17 15:32:43.279 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/App
+2020-11-17 15:32:43.292 +05:30 [INF] 15:32:43: Begin InitAppModel
+2020-11-17 15:32:43.293 +05:30 [INF] 15:32:43: Start Init App List Model
+2020-11-17 15:32:43.314 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:32:43.351 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:32:43.353 +05:30 [INF] Appsystem copied
+2020-11-17 15:32:43.361 +05:30 [INF] Finish Populate Security
+2020-11-17 15:32:43.367 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:32:43.378 +05:30 [INF] 15:32:43: End Init App List Model
+2020-11-17 15:32:43.400 +05:30 [INF] Generating App Var List
+2020-11-17 15:32:43.400 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:32:43.439 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:32:43.441 +05:30 [INF] Appsystem copied
+2020-11-17 15:32:43.447 +05:30 [INF] Finish Populate Security
+2020-11-17 15:32:43.459 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:32:43.470 +05:30 [INF] Populating Conf Dataset
+2020-11-17 15:32:43.537 +05:30 [INF] Populating Security And workflow
+2020-11-17 15:32:43.555 +05:30 [INF] Starting Menu Build ..
+2020-11-17 15:32:43.588 +05:30 [INF] CommonMenu Expand OK
+2020-11-17 15:32:43.595 +05:30 [INF] Check Init: True, 
+2020-11-17 15:32:43.616 +05:30 [INF] AppMenu Expand OK
+2020-11-17 15:32:43.637 +05:30 [INF] Common Menu Build OK
+2020-11-17 15:32:43.639 +05:30 [INF] App Menu Build OK
+2020-11-17 15:32:43.641 +05:30 [INF] Check Init: True, 
+2020-11-17 15:32:43.646 +05:30 [INF] ID_MyGroups hidden view row not found for tag <VIEW KEY="listgroups" />
+2020-11-17 15:32:43.647 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-17 15:32:43.648 +05:30 [INF] Object=DashMGR allowdefault=False allow=True
+2020-11-17 15:32:43.648 +05:30 [INF] Object=ListCourse allowdefault=False allow=True
+2020-11-17 15:32:43.648 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:32:43.652 +05:30 [INF] Object=listattendClass allowdefault=False allow=True
+2020-11-17 15:32:43.653 +05:30 [INF] ID_WhatsNew hidden frm row not found for tag <FRM KEY="TrackChanges" />
+2020-11-17 15:32:43.677 +05:30 [INF] Object=listImportfile allowdefault=False allow=True
+2020-11-17 15:32:43.705 +05:30 [INF] Object=ListResult allowdefault=False allow=True
+2020-11-17 15:32:43.707 +05:30 [INF] Object=ListExamDet allowdefault=False allow=True
+2020-11-17 15:32:43.755 +05:30 [INF] Object=listpayperiod allowdefault=False allow=True
+2020-11-17 15:32:43.767 +05:30 [INF] Object=listCampus allowdefault=False allow=True
+2020-11-17 15:32:43.773 +05:30 [INF] Object=listClass allowdefault=False allow=True
+2020-11-17 15:32:43.775 +05:30 [INF] Object=listHoliday allowdefault=False allow=True
+2020-11-17 15:32:43.776 +05:30 [INF] Finish Menu Build OK
+2020-11-17 15:32:43.780 +05:30 [INF] 15:32:43: End InitAppModel:
+2020-11-17 15:32:43.781 +05:30 [INF] Check Init: True, 
+2020-11-17 15:32:43.784 +05:30 [INF] Check Init: True, 

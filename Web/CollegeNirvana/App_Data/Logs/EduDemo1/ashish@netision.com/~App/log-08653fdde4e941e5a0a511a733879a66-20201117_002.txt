@@ -1,0 +1,65 @@
+2020-11-17 15:44:24.658 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/App?appcode=nclgmgr&cid=1
+2020-11-17 15:44:24.668 +05:30 [INF] 15:44:24: Begin InitAppModel
+2020-11-17 15:44:24.693 +05:30 [INF] 15:44:24: End InitAppModel:
+2020-11-17 15:44:24.695 +05:30 [INF] Check Init: True, 
+2020-11-17 15:44:24.696 +05:30 [INF] Check Init: True, 
+2020-11-17 15:44:24.725 +05:30 [INF] Checking view row and security ...
+2020-11-17 15:44:24.727 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:44:24.731 +05:30 [INF] Check Init: True, 
+2020-11-17 15:44:24.734 +05:30 [INF] Checking view row And security ...
+2020-11-17 15:44:24.736 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:44:24.737 +05:30 [INF] Inside view set
+2020-11-17 15:44:24.749 +05:30 [INF] Check Init: True, 
+2020-11-17 15:44:24.778 +05:30 [INF] Conf got
+2020-11-17 15:44:24.795 +05:30 [INF] Relations Set
+2020-11-17 15:47:54.663 +05:30 [INF]  -------- Begin Request ------ http://nclgmgr-edudemo1.dev.mylocalhost.in:56502/App?cid=1
+2020-11-17 15:47:54.680 +05:30 [INF] 15:47:54: Begin InitAppModel
+2020-11-17 15:47:54.682 +05:30 [INF] 15:47:54: Start Init App List Model
+2020-11-17 15:47:54.702 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:47:54.746 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:47:54.748 +05:30 [INF] Appsystem copied
+2020-11-17 15:47:54.754 +05:30 [INF] Finish Populate Security
+2020-11-17 15:47:54.762 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:47:54.772 +05:30 [INF] 15:47:54: End Init App List Model
+2020-11-17 15:47:54.789 +05:30 [INF] Generating App Var List
+2020-11-17 15:47:54.790 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:47:54.836 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:47:54.838 +05:30 [INF] Appsystem copied
+2020-11-17 15:47:54.844 +05:30 [INF] Finish Populate Security
+2020-11-17 15:47:54.851 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:47:54.863 +05:30 [INF] Populating Conf Dataset
+2020-11-17 15:47:54.934 +05:30 [INF] Populating Security And workflow
+2020-11-17 15:47:54.943 +05:30 [INF] Starting Menu Build ..
+2020-11-17 15:47:54.970 +05:30 [INF] CommonMenu Expand OK
+2020-11-17 15:47:54.977 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:54.995 +05:30 [INF] AppMenu Expand OK
+2020-11-17 15:47:55.007 +05:30 [INF] Common Menu Build OK
+2020-11-17 15:47:55.009 +05:30 [INF] App Menu Build OK
+2020-11-17 15:47:55.011 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:55.017 +05:30 [INF] ID_MyGroups hidden view row not found for tag <VIEW KEY="listgroups" />
+2020-11-17 15:47:55.018 +05:30 [INF] Object=DashMGR allowdefault=False allow=True
+2020-11-17 15:47:55.018 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:47:55.047 +05:30 [INF] Object=ListCourse allowdefault=False allow=True
+2020-11-17 15:47:55.047 +05:30 [INF] Object=listHoliday allowdefault=False allow=True
+2020-11-17 15:47:55.048 +05:30 [INF] Object=listpayperiod allowdefault=False allow=True
+2020-11-17 15:47:55.112 +05:30 [INF] ID_WhatsNew hidden frm row not found for tag <FRM KEY="TrackChanges" />
+2020-11-17 15:47:55.141 +05:30 [INF] Object=listattendClass allowdefault=False allow=True
+2020-11-17 15:47:55.178 +05:30 [INF] Object=listClass allowdefault=False allow=True
+2020-11-17 15:47:55.192 +05:30 [INF] Object=ListResult allowdefault=False allow=True
+2020-11-17 15:47:55.211 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-17 15:47:55.249 +05:30 [INF] Object=listImportfile allowdefault=False allow=True
+2020-11-17 15:47:55.256 +05:30 [INF] Object=ListExamDet allowdefault=False allow=True
+2020-11-17 15:47:55.303 +05:30 [INF] Object=listCampus allowdefault=False allow=True
+2020-11-17 15:47:55.353 +05:30 [INF] Finish Menu Build OK
+2020-11-17 15:47:55.365 +05:30 [INF] 15:47:55: End InitAppModel:
+2020-11-17 15:47:55.367 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:55.374 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:55.410 +05:30 [INF] Checking view row and security ...
+2020-11-17 15:47:55.412 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:47:55.415 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:55.419 +05:30 [INF] Checking view row And security ...
+2020-11-17 15:47:55.420 +05:30 [INF] Object=listStudent allowdefault=False allow=True
+2020-11-17 15:47:55.421 +05:30 [INF] Inside view set
+2020-11-17 15:47:55.433 +05:30 [INF] Check Init: True, 
+2020-11-17 15:47:55.463 +05:30 [INF] Conf got
+2020-11-17 15:47:55.479 +05:30 [INF] Relations Set

@@ -1,0 +1,192 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model  frmCampusModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} Campus</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Display Name<span class="red">*</span></label>
+                <input type="text" name="displayName" ng-model="campusInfo.DispName" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.displayName.$invalid]" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Campus Type<span class="red">*</span></label>
+                <select name="comptype" ng-model="campusInfo.CampusTypeSelected" class="form-control" style="min-width: 100%;" ng-options="camp.Descrip for camp in campusType track by camp.codeword" required ng-class="{true: 'error'}[submitted() && userform.comptype.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Print Name</label>
+                <input type="text" name="printname" ng-model="campusInfo.TCName" class="form-control" style="min-width: 100%;" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Campus Code</label>
+                <input type="text" name="campcode" ng-model="campusInfo.CampusCode" disabled class="form-control" style="min-width: 100%;" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">City</label>
+                <input type="text" name="city" ng-model="campusInfo.SelCity" class="form-control" style="min-width: 100%;" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-left:2px;">
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="width:100%">
+                <li class="nav-item">
+                    <a class="nav-link active" id="address-tab" data-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true">Address</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="statutory-tab" data-toggle="tab" href="#statutory" role="tab" aria-controls="statutory" aria-selected="true">Statutory</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent" style="width:99%;">
+                <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <label for="inputEmail4">Address<span class="red">*</span></label>
+                            <input type="text" name="address" ng-model="campusInfo.SelAddress" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.address.$invalid]" />
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputEmail4">Pincode</label>
+                            <input type="text" name="pincode" ng-model="campusInfo.SelPinCode" class="form-control numeric" style="min-width: 100%;" maxlength="6" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label class="control-label">Phone No.</label>
+                            <label>
+                                <input type="text" ng-model="campusInfo.SelPhCountry" class="input-group-addon numeric" maxlength="2" style="width:15%;" />
+                                <input type="text" ng-model="campusInfo.SelPhArea" class="input-group-addon numeric" maxlength="3" style="width:15%" />
+                                <input type="text" ng-model="campusInfo.SelPhNum" class="input-group-addon numeric" maxlength="7" style="max-width:60%" />
+                            </label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="control-label">Fax No.</label>
+                            <label>
+                                <input type="text" ng-model="campusInfo.SelFaxCountry" class="input-group-addon numeric" maxlength="2" style="width:15%;" />
+                                <input type="text" ng-model="campusInfo.SelFaxArea" class="input-group-addon numeric" maxlength="3" style="width:15%" />
+                                <input type="text" ng-model="campusInfo.SelFaxNum" class="input-group-addon numeric" maxlength="7" style="max-width:60%" />
+                            </label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">Country<span class="red">*</span></label>
+                            <select name="country" ng-model="campusInfo.SelCountrySelected" ng-options="itemcoun.country for itemcoun in country track by itemcoun.country" ng-change="changestate(campusInfo.SelCountrySelected)" style="max-width:100%" Class="form-control" required ng-class="{true: 'error'}[submitted() && userform.country.$invalid]"></select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">State<span class="red">*</span></label>
+                            <select name="selstate" ng-model="campusInfo.SelStateSelected" ng-options="itemsu.SubDivisionName for itemsu in State track by itemsu.SubDivisionName" style="max-width:100%" Class="form-control" required ng-class="{true: 'error'}[submitted() && userform.selstate.$invalid]"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="statutory" role="tabpanel" aria-labelledby="statutory-tab">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">Pan No.</label>
+                            <input type="text" name="pannumber" ng-model="campusInfo.PANNum" class="form-control" style="min-width: 100%;" />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">Tin No.</label>
+                            <input type="text" name="tinmumber" ng-model="campusInfo.TINNum" class="form-control" style="min-width: 100%;" />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">Tax Area Code</label>
+                            <select name="state" ng-model="campusInfo.TaxAreaIDSelected" ng-options="tac.TaxAreaCode for tac in TAreaCode track by tac.TaxAreaID" style="max-width:100%" Class="form-control"></select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputEmail4">College License No.</label>
+                            <input type="text" name="collegeLicenseNumber" ng-model="campusInfo.FactoryLicenseNumber" class="form-control" style="min-width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        rsApp.controller('FormController', function ($scope, $http, usSpinnerService) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Campus Model in scope
+                $scope.campusInfo = $scope.model.dsForm.DT[0];
+
+                //Bind Campus Type
+                $scope.campusType = $scope.model.dsCombo.CampusType;
+                $scope.campusInfo.CampusTypeSelected = $.grep($scope.campusType, function (item, index) { return item.codeword == $scope.model.dsForm.DT[0].CampusType })[0];
+                //Bind Country
+                $scope.country = $scope.model.dsCombo.CO;
+                //Bind State
+                $scope.State = $scope.model.dsCombo.SU;
+
+                //BIND TEXT AREA CODE
+                $scope.TAreaCode = $scope.model.dsCombo.TaxAreaCode;
+                $scope.campusInfo.TaxAreaIDSelected = $.grep($scope.TAreaCode, function (item, index) { return item.TaxAreaID == $scope.model.dsForm.DT[0].TaxAreaID })[0];
+
+                //BIND COUNTRY STATE IN EDIT MODE
+                $scope.campusInfo.SelCountrySelected = $.grep($scope.country, function (item, index) { return item.countryname == $scope.model.dsForm.DT[0].SelCountry })[0];
+
+                $scope.changestate = function (id) {
+                    $scope.State = [];
+                    if (id) {
+                        $.each($scope.model.dsCombo.SU, function (item, index) {
+                            if (index.countrycode === id.countrycode) {
+                                $scope.State.push(index);
+                            }
+                        });
+                    }
+                };
+
+                $scope.changestate($scope.campusInfo.SelCountrySelected);
+                $scope.campusInfo.SelStateSelected = $.grep($scope.State, function (item, index) { return item.SubDivisionName == $scope.model.dsForm.DT[0].SelState })[0];
+            }
+
+            loadmodel($scope.model);
+
+            $scope.calculatemodel = function () { };
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'campus', ID: $scope.model.dsForm.DT[0].CampusID, AcceptWarning: false };
+                return payload;
+            };
+
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}
+

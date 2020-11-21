@@ -1,0 +1,101 @@
+﻿{
+   "ContextClassName": "MxcollegedbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Mxcollegedb",
+   "OutputPath": "Mxcollegedb",
+   "ProjectRootNamespace": "klts.app.mxform.admin",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Alumni]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListActivityView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListAlumniView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListCommitteeMemberView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListDepartmentView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListEventDetailView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListInstiView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListMediaDetailView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[clgListNaaC]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListPersonsView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClgListSubjectView]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Committee]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Company]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DegreeCourse]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Department]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[FinYears]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[MediaDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NoticeBoard]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Subject]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}

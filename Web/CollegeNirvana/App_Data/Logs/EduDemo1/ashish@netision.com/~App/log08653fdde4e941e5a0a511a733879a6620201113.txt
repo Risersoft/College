@@ -1,0 +1,130 @@
+2020-11-13 14:58:26.393 +05:30 [INF] 14:58:26: Begin InitAppModel
+2020-11-13 14:58:26.399 +05:30 [INF] 14:58:26: Start Init App List Model
+2020-11-13 14:58:27.114 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-13 14:58:27.150 +05:30 [INF] Looking for unmerged app system 
+2020-11-13 14:58:27.152 +05:30 [INF] Appsystem copied
+2020-11-13 14:58:27.158 +05:30 [INF] Finish Populate Security
+2020-11-13 14:58:27.168 +05:30 [INF] Finish Populate Login Person
+2020-11-13 14:58:27.179 +05:30 [INF] 14:58:27: End Init App List Model
+2020-11-13 14:58:27.821 +05:30 [INF] Generating App Var List
+2020-11-13 14:58:27.824 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-13 14:58:27.862 +05:30 [INF] Looking for unmerged app system 
+2020-11-13 14:58:27.864 +05:30 [INF] Appsystem copied
+2020-11-13 14:58:27.878 +05:30 [INF] Finish Populate Security
+2020-11-13 14:58:27.884 +05:30 [INF] Finish Populate Login Person
+2020-11-13 14:58:27.894 +05:30 [INF] Populating Conf Dataset
+2020-11-13 14:58:27.969 +05:30 [INF] Populating Security And workflow
+2020-11-13 14:58:27.997 +05:30 [INF] Starting Menu Build ..
+2020-11-13 14:58:28.023 +05:30 [INF] CommonMenu Expand OK
+2020-11-13 14:58:28.850 +05:30 [INF] AppMenu Expand OK
+2020-11-13 14:58:28.862 +05:30 [INF] Common Menu Build OK
+2020-11-13 14:58:28.866 +05:30 [INF] App Menu Build OK
+2020-11-13 14:58:28.870 +05:30 [INF] Check Init: True, 
+2020-11-13 14:58:28.881 +05:30 [INF] ID_MyGroups hidden view row not found for tag <VIEW KEY="listgroups" />
+2020-11-13 14:58:28.883 +05:30 [INF] ID_WhatsNew hidden frm row not found for tag <FRM KEY="TrackChanges" />
+2020-11-13 14:58:28.886 +05:30 [INF] Object=listAssets allowdefault=False allow=True
+2020-11-13 14:58:28.886 +05:30 [INF] Object=ListNoticeBoard allowdefault=False allow=True
+2020-11-13 14:58:28.886 +05:30 [INF] Object=ListPersons allowdefault=False allow=True
+2020-11-13 14:58:28.886 +05:30 [INF] Object=ListSubject allowdefault=False allow=True
+2020-11-13 14:58:28.888 +05:30 [INF] Object=ListMgtCommittee allowdefault=False allow=True
+2020-11-13 14:58:28.890 +05:30 [INF] Object=ListActivityRegistration allowdefault=False allow=True
+2020-11-13 14:58:28.892 +05:30 [INF] Object=ListNAAC allowdefault=False allow=True
+2020-11-13 14:58:28.895 +05:30 [INF] ID_AdmissionRule hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 14:58:28.899 +05:30 [INF] Object=ListAlumni allowdefault=False allow=True
+2020-11-13 14:58:28.901 +05:30 [INF] Object=ListFaculty allowdefault=False allow=True
+2020-11-13 14:58:28.902 +05:30 [INF] Object=ListEvent allowdefault=False allow=True
+2020-11-13 14:58:28.904 +05:30 [INF] Object=ListNonTeachStaff allowdefault=False allow=True
+2020-11-13 14:58:28.932 +05:30 [INF] ID_Internship hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 14:58:28.962 +05:30 [INF] Object=ListDepartment allowdefault=False allow=True
+2020-11-13 14:58:28.967 +05:30 [INF] Object=ListCommittee allowdefault=False allow=True
+2020-11-13 14:58:28.968 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 14:58:28.969 +05:30 [INF] Object=ListEventRegistration allowdefault=False allow=True
+2020-11-13 14:58:28.995 +05:30 [INF] ID_CollegeTrip hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 14:58:29.000 +05:30 [INF] Object=ListCourse allowdefault=False allow=True
+2020-11-13 14:58:29.025 +05:30 [INF] Object=ListActivity allowdefault=False allow=True
+2020-11-13 14:58:29.036 +05:30 [INF] Object=listCampus allowdefault=False allow=True
+2020-11-13 14:58:29.037 +05:30 [INF] Finish Menu Build OK
+2020-11-13 14:58:29.041 +05:30 [INF] 14:58:29: End InitAppModel:
+2020-11-13 14:58:29.043 +05:30 [INF] Check Init: True, 
+2020-11-13 14:58:29.045 +05:30 [INF] Check Init: True, 
+2020-11-13 14:58:29.078 +05:30 [INF] Checking view row and security ...
+2020-11-13 14:58:29.080 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 14:58:29.084 +05:30 [INF] Check Init: True, 
+2020-11-13 14:58:29.087 +05:30 [INF] Checking view row And security ...
+2020-11-13 14:58:29.087 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 14:58:29.088 +05:30 [INF] Inside view set
+2020-11-13 14:58:29.102 +05:30 [INF] Check Init: True, 
+2020-11-13 14:58:29.129 +05:30 [INF] Conf got
+2020-11-13 14:58:29.141 +05:30 [INF] Relations Set
+2020-11-13 14:59:01.082 +05:30 [INF] 14:59:01: Begin InitAppModel
+2020-11-13 14:59:02.766 +05:30 [INF] 14:59:02: End InitAppModel:
+2020-11-13 14:59:02.768 +05:30 [INF] Check Init: True, 
+2020-11-13 14:59:02.769 +05:30 [INF] Check Init: True, 
+2020-11-13 14:59:02.773 +05:30 [INF] Checking view row and security ...
+2020-11-13 14:59:02.774 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 14:59:02.775 +05:30 [INF] Check Init: True, 
+2020-11-13 14:59:02.776 +05:30 [INF] Checking view row And security ...
+2020-11-13 14:59:02.777 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 14:59:02.778 +05:30 [INF] Inside view set
+2020-11-13 14:59:02.781 +05:30 [INF] Check Init: True, 
+2020-11-13 14:59:02.787 +05:30 [INF] Conf got
+2020-11-13 14:59:02.791 +05:30 [INF] Relations Set
+2020-11-13 15:05:58.434 +05:30 [INF]  -------- Begin Request ------ http://nclginfo-edudemo1.dev.mylocalhost.in:56502/App?appcode=nclginfo&cid=1
+2020-11-13 15:05:58.452 +05:30 [INF] 15:05:58: Begin InitAppModel
+2020-11-13 15:05:58.453 +05:30 [INF] 15:05:58: Start Init App List Model
+2020-11-13 15:05:59.158 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-13 15:05:59.230 +05:30 [INF] Looking for unmerged app system 
+2020-11-13 15:05:59.232 +05:30 [INF] Appsystem copied
+2020-11-13 15:05:59.238 +05:30 [INF] Finish Populate Security
+2020-11-13 15:05:59.243 +05:30 [INF] Finish Populate Login Person
+2020-11-13 15:05:59.254 +05:30 [INF] 15:05:59: End Init App List Model
+2020-11-13 15:05:59.858 +05:30 [INF] Generating App Var List
+2020-11-13 15:05:59.860 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-13 15:05:59.897 +05:30 [INF] Looking for unmerged app system 
+2020-11-13 15:05:59.899 +05:30 [INF] Appsystem copied
+2020-11-13 15:05:59.926 +05:30 [INF] Finish Populate Security
+2020-11-13 15:05:59.961 +05:30 [INF] Finish Populate Login Person
+2020-11-13 15:05:59.972 +05:30 [INF] Populating Conf Dataset
+2020-11-13 15:06:00.049 +05:30 [INF] Populating Security And workflow
+2020-11-13 15:06:00.063 +05:30 [INF] Starting Menu Build ..
+2020-11-13 15:06:00.090 +05:30 [INF] CommonMenu Expand OK
+2020-11-13 15:06:00.837 +05:30 [INF] AppMenu Expand OK
+2020-11-13 15:06:00.849 +05:30 [INF] Common Menu Build OK
+2020-11-13 15:06:00.852 +05:30 [INF] App Menu Build OK
+2020-11-13 15:06:00.856 +05:30 [INF] Check Init: True, 
+2020-11-13 15:06:00.868 +05:30 [INF] ID_MyGroups hidden view row not found for tag <VIEW KEY="listgroups" />
+2020-11-13 15:06:00.868 +05:30 [INF] ID_WhatsNew hidden frm row not found for tag <FRM KEY="TrackChanges" />
+2020-11-13 15:06:00.868 +05:30 [INF] Object=ListPersons allowdefault=False allow=True
+2020-11-13 15:06:00.868 +05:30 [INF] Object=ListCommittee allowdefault=False allow=True
+2020-11-13 15:06:00.868 +05:30 [INF] Object=ListNoticeBoard allowdefault=False allow=True
+2020-11-13 15:06:00.869 +05:30 [INF] Object=ListSubject allowdefault=False allow=True
+2020-11-13 15:06:00.873 +05:30 [INF] Object=ListNAAC allowdefault=False allow=True
+2020-11-13 15:06:00.875 +05:30 [INF] ID_AdmissionRule hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 15:06:00.878 +05:30 [INF] Object=ListFaculty allowdefault=False allow=True
+2020-11-13 15:06:00.882 +05:30 [INF] Object=ListMgtCommittee allowdefault=False allow=True
+2020-11-13 15:06:00.883 +05:30 [INF] Object=ListEvent allowdefault=False allow=True
+2020-11-13 15:06:00.884 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 15:06:00.884 +05:30 [INF] Object=ListDepartment allowdefault=False allow=True
+2020-11-13 15:06:00.886 +05:30 [INF] Object=ListEventRegistration allowdefault=False allow=True
+2020-11-13 15:06:00.923 +05:30 [INF] Object=ListNonTeachStaff allowdefault=False allow=True
+2020-11-13 15:06:00.955 +05:30 [INF] Object=ListActivityRegistration allowdefault=False allow=True
+2020-11-13 15:06:00.986 +05:30 [INF] Object=ListActivity allowdefault=False allow=True
+2020-11-13 15:06:00.991 +05:30 [INF] Object=listCampus allowdefault=False allow=True
+2020-11-13 15:06:00.993 +05:30 [INF] Object=listAssets allowdefault=False allow=True
+2020-11-13 15:06:01.018 +05:30 [INF] Object=ListCourse allowdefault=False allow=True
+2020-11-13 15:06:01.022 +05:30 [INF] Object=ListAlumni allowdefault=False allow=True
+2020-11-13 15:06:01.023 +05:30 [INF] ID_Internship hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 15:06:01.051 +05:30 [INF] ID_CollegeTrip hidden view row not found for tag <VIEW KEY="" />
+2020-11-13 15:06:01.082 +05:30 [INF] Finish Menu Build OK
+2020-11-13 15:06:01.086 +05:30 [INF] 15:06:01: End InitAppModel:
+2020-11-13 15:06:01.087 +05:30 [INF] Check Init: True, 
+2020-11-13 15:06:01.090 +05:30 [INF] Check Init: True, 
+2020-11-13 15:06:01.123 +05:30 [INF] Checking view row and security ...
+2020-11-13 15:06:01.125 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 15:06:01.128 +05:30 [INF] Check Init: True, 
+2020-11-13 15:06:01.132 +05:30 [INF] Checking view row And security ...
+2020-11-13 15:06:01.133 +05:30 [INF] Object=listInstitution allowdefault=False allow=True
+2020-11-13 15:06:01.134 +05:30 [INF] Inside view set
+2020-11-13 15:06:01.149 +05:30 [INF] Check Init: True, 
+2020-11-13 15:06:01.191 +05:30 [INF] Conf got
+2020-11-13 15:06:01.203 +05:30 [INF] Relations Set

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "_RSCollegeNirvana", "Windows\risersoft.exe.CollegeNirvana\_RSCollegeNirvana.vbproj", "{B6C67EF3-E87E-49E9-9B1C-030F4B404BAD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "risersoft.app.mxform.college", "Framework\risersoft.app.mxform.college\risersoft.app.mxform.college.vbproj", "{31C1FFC7-C4C6-46BA-8783-7C796F4E076D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "risersoft.app.college", "Windows\risersoft.app.college\risersoft.app.college.vbproj", "{FD73DD1F-F761-4811-9A69-50DB3AA3B759}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "risersoft.app.mxform", "..\Common\Forms\risersoft.app.mxform\risersoft.app.mxform.vbproj", "{0E5882D2-22B1-4716-99DF-680A77AE3E19}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "risersoft.app.config", "..\Common\Windows\risersoft.app.config\risersoft.app.config.vbproj", "{6E72E896-AFCE-497C-95ED-676F43B862F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "klts.app.mxform.admin", "Framework\klts.app.mxform.admin\klts.app.mxform.admin.csproj", "{6C506C70-929D-403B-A65D-9CE1F015E3CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6C67EF3-E87E-49E9-9B1C-030F4B404BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C67EF3-E87E-49E9-9B1C-030F4B404BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C67EF3-E87E-49E9-9B1C-030F4B404BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C67EF3-E87E-49E9-9B1C-030F4B404BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C1FFC7-C4C6-46BA-8783-7C796F4E076D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C1FFC7-C4C6-46BA-8783-7C796F4E076D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C1FFC7-C4C6-46BA-8783-7C796F4E076D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C1FFC7-C4C6-46BA-8783-7C796F4E076D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD73DD1F-F761-4811-9A69-50DB3AA3B759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD73DD1F-F761-4811-9A69-50DB3AA3B759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD73DD1F-F761-4811-9A69-50DB3AA3B759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD73DD1F-F761-4811-9A69-50DB3AA3B759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5882D2-22B1-4716-99DF-680A77AE3E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5882D2-22B1-4716-99DF-680A77AE3E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5882D2-22B1-4716-99DF-680A77AE3E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5882D2-22B1-4716-99DF-680A77AE3E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E72E896-AFCE-497C-95ED-676F43B862F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E72E896-AFCE-497C-95ED-676F43B862F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E72E896-AFCE-497C-95ED-676F43B862F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E72E896-AFCE-497C-95ED-676F43B862F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C506C70-929D-403B-A65D-9CE1F015E3CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C506C70-929D-403B-A65D-9CE1F015E3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C506C70-929D-403B-A65D-9CE1F015E3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C506C70-929D-403B-A65D-9CE1F015E3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E50847E-1D68-4E55-86CC-545EA4FE6069}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rsds.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\Common\\Forms\\risersoft.app.mxform\\risersoft.app.mxform.vbproj
+		SccProjectName1 = ../Common/Forms/risersoft.app.mxform
+		SccLocalPath1 = ..\\Common\\Forms\\risersoft.app.mxform
+		SccProjectUniqueName2 = Windows\\risersoft.exe.CollegeNirvana\\_RSCollegeNirvana.vbproj
+		SccProjectName2 = Windows/risersoft.exe.CollegeNirvana
+		SccLocalPath2 = Windows\\risersoft.exe.CollegeNirvana
+		SccProjectUniqueName3 = Windows\\risersoft.app.college\\risersoft.app.college.vbproj
+		SccProjectName3 = Windows/risersoft.app.college
+		SccLocalPath3 = Windows\\risersoft.app.college
+		SccProjectUniqueName4 = Framework\\risersoft.app.mxform.college\\risersoft.app.mxform.college.vbproj
+		SccProjectName4 = Framework/risersoft.app.mxform.college
+		SccLocalPath4 = Framework\\risersoft.app.mxform.college
+		SccProjectUniqueName5 = ..\\Common\\Windows\\risersoft.app.config\\risersoft.app.config.vbproj
+		SccProjectName5 = ../Common/Windows/risersoft.app.config
+		SccLocalPath5 = ..\\Common\\Windows\\risersoft.app.config
+		SccProjectUniqueName6 = Framework\\klts.app.mxform.admin\\klts.app.mxform.admin.csproj
+		SccProjectName6 = Framework/klts.app.mxform.admin
+		SccLocalPath6 = Framework\\klts.app.mxform.admin
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,146 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmAttendStuModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<script src="~/Scripts/moment.js"></script>
+<link href="jquery.timepicker.css" rel="stylesheet" type="text/css">
+<script src="jquery.timepicker.js"></script>
+<script src="~/Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">Attendance (Student Wise)</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Name<span class="red">*</span></label>
+                <input type="text" name="stuName" ng-model="studentInfo.FullName" class="form-control" style="min-width: 100%;" disabled />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Serial Number</label>
+                <input type="text" name="serialno" ng-model="studentInfo.SerialNo" class="form-control" style="min-width: 100%;" disabled />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Class Name</label>
+                <input type="text" name="classname" ng-model="studentInfo.ClassName" class="form-control" style="min-width: 100%;" disabled />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-12"><p class="text-light bg-primary" style="color:#f8f9fa"><span style="padding:10px;">Attendance</span></p></div>
+        </div>
+
+        <div class="form-row" ng-show="AcademicCalender.length > 0">
+            <div class="form-group col-md-12">
+                <table id="tbl" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Dated</th>
+                            <th>Shift</th>
+                            <th>Status</th>
+                            <th>In Time</th>
+                            <th>Out Time</th>
+                            <th>Comment</th>
+                            <th>Is Manual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ac in AcademicCalender track by $index">
+                            <td>{{$index+1}}.</td>
+                            <td>{{ac.Dated | date:'dd MMM, yyyy'}}</td>
+                            <td><select class="form-control" ng-model="ac.ShiftSelected" ng-options="sh.shift for sh in shift track by sh.shiftid"></select></td>
+                            <td><select class="form-control" ng-model="ac.attendidfhSelected" ng-options="st.attendtag for st in status track by st.attendtagid"></select></td>
+                            <td><input type="text" name="intime" class="form-control timeMask" ng-model="ac.InTime" style="width: 150px;" placeholder="HH:MM" /></td>
+                            <td><input type="text" name="outtime" class="form-control timeMask" ng-model="ac.OutTime" style="width: 150px;" placeholder="HH:MM" /></td>
+                            <td><input type="text" class="form-control" ng-model="ac.Comment" style="width: 150px;" /></td>
+                            <td><select class="form-control" ng-model="ac.IsManualSelected" ng-options="m.manualName for m in manual track by m.maualId"></select></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.timeMask').mask('99:99');
+        });
+
+        rsApp.controller('FormController', function ($scope, $http, usSpinnerService) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                ////Show Hide Delete Buttons
+                //$scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Event Model in scopee
+                $scope.studentInfo = $scope.model.dsForm.DT[0];
+                //Bind DropDown in
+                $scope.shift = $scope.model.GridViews.Att.MainGrid.dsLookup.Table0
+                $scope.status = $scope.model.GridViews.Att.MainGrid.dsLookup.Table1
+                $scope.manual = [{ maualId: 0, manualName: "No" }, { maualId: 1, manualName: "Yes" }];
+                //Set Attendance
+                $scope.AcademicCalender = $scope.model.GridViews.Att.MainGrid.myDS.dt;
+
+                for (var i = 0; i < $scope.AcademicCalender.length; i++) {
+                    $scope.AcademicCalender[i].ShiftSelected = $.grep($scope.shift, function (item, index) { return item.shiftid == $scope.AcademicCalender[i].Shiftid })[0];
+                    $scope.AcademicCalender[i].attendidfhSelected = $.grep($scope.status, function (item, index) { return item.attendtagid == $scope.AcademicCalender[i].attendidfh })[0];
+                    $scope.AcademicCalender[i].IsManualSelected = $.grep($scope.manual, function (item, index) { return item.maualId == $scope.AcademicCalender[i].IsManual })[0];
+
+                    if ($scope.AcademicCalender[i].InTime !== undefined && $scope.AcademicCalender[i].InTime !== null) {
+                        $scope.AcademicCalender[i].InTime = moment($scope.AcademicCalender[i].InTime).format("hh:mm");
+                    } else {
+                        $scope.AcademicCalender[i].InTime = "HH:MM";
+                    }
+
+                    if ($scope.AcademicCalender[i].OutTime !== undefined && $scope.AcademicCalender[i].OutTime !== null) {
+                        $scope.AcademicCalender[i].OutTime = moment($scope.AcademicCalender[i].OutTime).format("hh:mm");
+                    } else {
+                        $scope.AcademicCalender[i].OutTime = "HH:MM";
+                    }
+                }
+            }
+
+            loadmodel($scope.model);
+
+            $scope.calculatemodel = function () {
+                $scope.model.GridViews.Att.MainGrid.myDS.dt = $scope.AcademicCalender;
+            }
+
+            $scope.cleanupmodel = function (datamodel) { }
+
+            @Html.RenderFile("~/scripts/uploadCollegeFiles.js");
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}

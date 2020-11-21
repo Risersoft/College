@@ -1,0 +1,21 @@
+﻿@using risersoft.shared.agent;
+@{
+    Layout = null;
+    var ctx = ((IHostedController)ViewContext.Controller).myWebController;
+}
+
+<div>
+    <footer class="footer ng-scope">
+        <div class="container">
+        </div>
+    </footer>
+    <section class="footer_bottom ng-scope">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <p class="copyright">&copy; Copyright @DateTime.Now.Year @ctx.CalcHost().Brand</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

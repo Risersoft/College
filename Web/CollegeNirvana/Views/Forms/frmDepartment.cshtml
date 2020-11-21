@@ -1,0 +1,89 @@
+﻿@using risersoft.shared.web.Extensions;
+@using Newtonsoft.Json;
+@using risersoft.app.mxform.college;
+
+@model frmDepartmentModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} Department</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Department Name<span class="red">*</span></label>
+                <input type="text" name="departmentName" ng-model="departmentInfo.DeptName" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.departmentName.$invalid]" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Department Code<span class="red">*</span></label>
+                <input type="text" name="depcode" ng-model="departmentInfo.DepCode" class="form-control" style="min-width: 100%;" required ng-class="{true: 'error'}[submitted() && userform.depcode.$invalid]" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Established Year</label>
+                <input type="text" name="establishedyear" ng-model="departmentInfo.EstabYear" class="form-control" style="max-width:100%" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Name of H.O.D</label>
+                <select name="nameofhod" ng-model="departmentInfo.HODPersonIDSelected" class="form-control" style="min-width: 100%;" ng-options="hod.fullname for hod in hodperson track by hod.personid"></select>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        rsApp.controller('FormController', function ($scope, $http, usSpinnerService) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Activity Model in scope
+                $scope.departmentInfo = $scope.model.dsForm.DT[0];
+                //Drop Downs
+                $scope.hodperson = $scope.model.dsCombo.HODPersonID;
+                //Bind Dropdown in edit mode
+                $scope.departmentInfo.HODPersonIDSelected = $.grep($scope.hodperson, function (item, index) { return item.personid == $scope.departmentInfo.HODPersonID })[0];
+            }
+
+            loadmodel($scope.model);
+
+            $scope.calculatemodel = function () { };
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'department', ID: $scope.model.dsForm.DT[0].DeptID, AcceptWarning: false };
+                return payload;
+            };
+
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}

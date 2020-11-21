@@ -1,0 +1,13 @@
+﻿@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmPunchAttendModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<h2>frmPunchAttend</h2>
+

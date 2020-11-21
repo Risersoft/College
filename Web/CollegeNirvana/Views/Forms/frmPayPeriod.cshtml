@@ -1,0 +1,284 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model  frmPayPeriodModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<link href="~/Content/custom-calander.css" rel="stylesheet" />
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/jQueryUI-datetimepicker.js"></script>
+<style type="text/css">
+    .errorSelect {
+        border: 1px solid red;
+    }
+</style>
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} Pay Period</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputEmail4">Description<span class="red">*</span></label>
+                <input type="text" name="course" ng-model="payPeriodInfo.PayPeriodName" class="form-control" style="min-width: 100%;" disabled required ng-class="{true: 'error'}[submitted() && userform.heading.$invalid]" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputEmail4">Start Date</label>
+                <div class="input-group">
+                    <input name="admnDate" type="text" ng-model="payPeriodInfo.SDate" class="form-control" disabled aria-describedby="basic-addon1" required ng-class="{true: 'error'}[submitted() && userform.admnDate.$invalid]" />
+                    <label class="input-group-addon btn" for="date" style="position: absolute; margin-left: 135px; z-index:9">
+                        <span class="fa fa-calendar open-datetimepicker" id="basic-addon1" style="cursor:pointer"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputEmail4">End Date</label>
+                <div class="input-group">
+                    <input name="admnDate" type="text" ng-model="payPeriodInfo.EDate" class="form-control" disabled aria-describedby="basic-addon1" required ng-class="{true: 'error'}[submitted() && userform.admnDate.$invalid]" />
+                    <label class="input-group-addon btn" for="date" style="position: absolute; margin-left: 135px; z-index:9">
+                        <span class="fa fa-calendar open-datetimepicker" id="basic-addon1" style="cursor:pointer"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Rate Master</label>
+                <select class="form-control" style="max-width:94%" ng-model="payPeriodInfo.RateMasterIDSelected" disabled name="ratemasterid" ng-options="rm.Descrip for rm in rateMaster track by rm.RateMasterId"></select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputEmail4">Financial Year</label>
+                <select class="form-control" style="max-width:94%" ng-model="payPeriodInfo.PostPeriodIDSelected" disabled name="durationyear" ng-options="pp.Descrip for pp in postPeriod track by pp.PostPeriodID"></select>
+            </div>
+        </div>
+        @*<div class="form-row">
+                <div class="form-group col-md-9" style="margin-top: 35px;">
+                    <button class="btn btn-default">Import Student</button>
+                    <button class="btn btn-default">Import Attendance</button>
+                </div>
+            </div>*@
+        <div class="row" style="margin-left:2px;">
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="width:100%">
+                <li class="nav-item">
+                    <a class="nav-link active" id="content-tab" data-toggle="tab" href="#content" role="tab" aria-controls="content" aria-selected="true">Holidays</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent" style="width:99%;">
+                <div class="tab-pane fade show active" id="content" role="tabpanel" aria-labelledby="content-tab">
+                    <div class="clearfix" style="margin-top:20px;"></div>
+                    <div class="form-row">
+                        <div class="form-group col-md-11">
+                            <table id="tblPayPeriodHoliday" class="table table-sm" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th style="width:210px">Campus</th>
+                                        <th style="width: 175px;">Dated</th>
+                                        <th>Holiday</th>
+                                        <th>Working Type</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="hol in Holiday">
+                                        <td>{{$index + 1}}</td>
+                                        <td>
+                                            <select class="form-control" id="CampusID" ng-model="hol.CampusIDSelected" ng-options="camp.DispName for camp in campus track by camp.CampusID"></select>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input name="holDate" id="holDate" type="text" ng-model="hol.Dated" class="form-control admnDate" aria-describedby="basic-addon1" />
+                                                <label class="input-group-addon btn" for="date" style="position: absolute; margin-left: 130px; z-index:9">
+                                                    <span class="fa fa-calendar open-datetimepicker" id="basic-addon1" style="cursor:pointer"></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td><input type="text" id="holiday" class="form-control" ng-model="hol.Holiday" /></td>
+                                        <td><select class="form-control" id="IsCompleteWorking" ng-model="hol.IsWorkingSelected" ng-options="t.description for t in Type track by t.typeId" /></td>
+                                        <td><a href="javascript:void(0)" ng-click="deleteHoliday($index)"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <tr ng-show="!Holiday.length">
+                                        <td colspan="6" style="text-align:center;font-size: 20px;">No Records Found...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-1">
+                            <div style="float:right; margin-bottom:5px;">
+                                <button type="button" id="btnAddNew" Class="btn btn-default btnf" ng-click="addHolidayInfo(Holiday.length)"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".admnDate").datetimepicker({
+                format: 'Y/m/d',
+                timepicker: false,
+            }).attr('readonly', 'readonly');
+        });
+
+        rsApp.controller('FormController', function ($scope, $http) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set Subject Model in scope
+                $scope.payPeriodInfo = $scope.model.dsForm.DT[0];
+                //Date Format
+                $scope.payPeriodInfo.SDate = new moment($scope.payPeriodInfo.SDate).format("YYYY-MM-D");
+                $scope.payPeriodInfo.EDate = new moment($scope.payPeriodInfo.EDate).format("YYYY-MM-D");
+                if ($scope.model.frmMode == 2) {
+                    $scope.payPeriodInfo.PayPeriodName = new moment($scope.payPeriodInfo.SDate).format("MMMM - YYYY");
+                }
+
+                //Bind DropDown
+                $scope.rateMaster = $scope.model.dsCombo.rm;
+                $scope.postPeriod = $scope.model.dsCombo.PostPeriod;
+
+                //Bind CompanyId
+                $scope.payPeriodInfo.RateMasterIDSelected = $.grep($scope.rateMaster, function (item, index) { return item.RateMasterId == $scope.model.dsForm.DT[0].RateMasterID })[0];
+                $scope.payPeriodInfo.PostPeriodIDSelected = $.grep($scope.postPeriod, function (item, index) { return item.PostPeriodID == $scope.model.dsForm.DT[0].PostPeriodID })[0];
+
+                //Campus
+                $scope.campus = $scope.model.GridViews.Holiday.MainGrid.dsLookup.Table0;
+                $scope.Type = [{ "typeId": false, "description": "Holiday" }, { "typeId": true, "description": "Working" }];
+
+                //Dynamically Add Rows in Table of papar and Time Table
+                if (Array.isArray($scope.model.GridViews.Holiday.MainGrid.myDS.dt) && $scope.model.GridViews.Holiday.MainGrid.myDS.dt.length)
+                    $scope.Holiday = $scope.model.GridViews.Holiday.MainGrid.myDS.dt;
+                else
+                    $scope.Holiday = [];
+
+                if ($scope.Holiday.length > 0) {
+                    $(function () {
+                        $(".admnDate").datetimepicker({
+                            format: 'Y/m/d',
+                            timepicker: false,
+                        }).attr('readonly', 'readonly');
+                    });
+
+                    for (var i = 0; i < $scope.Holiday.length; i++) {
+                        $scope.Holiday[i].Dated = new moment($scope.Holiday[i].Dated).format("YYYY-MM-D");
+                        $scope.Holiday[i].CampusIDSelected = $.grep($scope.campus, function (item, index) { return item.CampusID == $scope.Holiday[i].CampusID })[0];
+                        $scope.Holiday[i].IsWorkingSelected = $.grep($scope.Type, function (item, index) { return item.typeId == $scope.Holiday[i].Isworking })[0];
+                    }
+                }
+            }
+
+            loadmodel($scope.model);
+
+            $scope.addHolidayInfo = function () {
+                var holiday = {};
+                $(function () {
+                    $(".admnDate").datetimepicker({
+                        format: 'Y/m/d',
+                        timepicker: false,
+                    }).attr('readonly', 'readonly');
+                });
+
+                $scope.Holiday.push(holiday);
+            }
+
+            $scope.deleteHoliday = function (index) {
+                $scope.Holiday.splice(index, 1);
+            }
+
+            $scope.deleteClassRow = function (index) {
+                $scope.Class.splice(index, 1);
+            }
+
+            $scope.calculatemodel = function () {
+                $scope.model.GridViews.Holiday.MainGrid.myDS.dt = $scope.Holiday;
+
+                $('[id*=tblPayPeriodHoliday] tr:not(:has(th))').each(function (index, item) {
+                    var Campus = $(item).find('[id*=CampusID] option:selected').val();
+                    var holDated = $(item).find('[id*=holDate]').val();
+                    var holiday = $(item).find('[id*=holiday]').val();
+                    var selected = $(item).find('[id*=IsCompleteWorking] option:selected').val();
+
+                    for (var i = 0; i < $scope.Holiday.length; i++) {
+                        if (i == index) {
+                            if (Campus != "?") {
+                                $scope.Holiday[i].CampusID = Campus;
+                                $(item).find('[id*=CampusID]').removeClass('errorSelect');
+                            }
+                            else {
+                                $(item).find('[id*=CampusID]').addClass('errorSelect');
+                            }
+
+                            if (selected != "?") {
+                                $scope.Holiday[i].IsWorking = selected;
+                                $(item).find('[id*=IsCompleteWorking]').removeClass('errorSelect');
+                            }
+                            else {
+                                $(item).find('[id*=IsCompleteWorking]').addClass('errorSelect');
+                            }
+
+                            if (holDated != "") {
+                                $scope.Holiday[i].Dated = holDated;
+                                $(item).find('[id*=holDate]').removeClass('errorSelect');
+                            }
+                            else {
+                                $(item).find('[id*=holDate]').addClass('errorSelect');
+                            }
+
+                            if (holiday != "") {
+                                $scope.Holiday[i].Holiday = holiday;
+                                $(item).find('[id*=holiday]').removeClass('errorSelect');
+                            }
+                            else {
+                                $(item).find('[id*=holiday]').addClass('errorSelect');
+                            }
+
+                            return false;
+                        }
+                    }
+                });
+            }
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'payperiod', ID: $scope.model.dsForm.DT[0].PayPeriodID, AcceptWarning: false };
+                return payload;
+            };
+
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}
+

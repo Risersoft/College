@@ -1,0 +1,341 @@
+﻿@using risersoft.shared.web.Extensions
+@using Newtonsoft.Json
+@using risersoft.app.mxform.college
+
+@model frmNAACModel
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_FrameworkLayout.vbhtml";
+    var modelJson = JsonConvert.SerializeObject(Model, Formatting.Indented,
+                            new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml, NullValueHandling = NullValueHandling.Ignore });
+}
+
+<div Class="container cbackground">
+    <form action="" method="post" name="userform" id="userform" ng-controller="FormController">
+        <input type="hidden" id="model_json" value='@Html.Raw(modelJson)' />
+        <input type="hidden" id="fileStatus" />
+
+        @Html.AntiForgeryToken()
+
+        <!-- Start Page Heading Section -->
+        <div class="row">
+            <div class="col-md-10">
+                <label class="control-label"></label>
+                <h5 style="color:#1c66a7">{{title}} NAAC</h5>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+        <!-- End Page Heading Section -->
+        <!-- Start Page Content -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">College<span class="red">*</span></label>
+                <select name="companyid" ng-model="naacInfo.CompanyIDSelected" class="form-control" style="min-width: 100%;" ng-options="comp.CompName for comp in company track by comp.CompName" required ng-class="{true: 'error'}[submitted() && userform.companyid.$invalid]"></select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Session</label>
+                <select name="companyid" ng-model="naacInfo.FinyearIDSelected" class="form-control" style="min-width: 100%;" ng-options="sess.descrip for sess in session track by sess.finyearid" required ng-class="{true: 'error'}[submitted() && userform.companyid.$invalid]"></select>
+            </div>
+            @*<div class="form-group col-md-4">
+                    <label for="inputEmail4">Agenda and Minutes</label>
+                    <input type="text" name="agendaminutes" ng-model="naacInfo.AgendaMinutes" class="form-control admnDate" style="min-width: 100%;" />
+                </div>*@
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="iqac-tab" data-toggle="tab" href="#iqac" role="tab" aria-controls="iqac" aria-selected="true">IQAC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="aqar-tab" data-toggle="tab" href="#aqar" role="tab" aria-controls="aqar" aria-selected="false">AQAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ssr-tab" data-toggle="tab" href="#ssr" role="tab" aria-controls="ssr" aria-selected="false">SSR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ssr-tab" data-toggle="tab" href="#agendaminutes" role="tab" aria-controls="agendaminutes" aria-selected="false">Agenda and Minutes</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="iqac" role="tabpanel" aria-labelledby="iqac-tab">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">IQAC File</label>
+                            <div id="spnMsg" ng-show="isShowMsg" style="margin-bottom:15px; margin-top:15px;"></div>
+                            <table id="tbl" style="width:100%">
+                                <tr>
+                                    <td style="width:100%"><input type="file" id="iqac_attach_filename" name="iqac_attach_filename" class="form-control" autocomplete="off" style="max-width: 100%;"></td>
+                                    <td><button type="button" class="btn btn-default btnf" ng-click="UploadNaacFile('iqac')">Upload</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <table id="tbliqac_attach_filename" style="width:100%" ng-show="IQAC.length > 0">
+                                <tr>
+                                    <th>#</th>
+                                    <th>File Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr ng-repeat="upd in IQAC track by $index">
+                                    <td>{{$index+1}}.</td>
+                                    <td>{{upd.bloborgname}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><i class="fa fa-download" ng-click="downloadFile(upd.blobname)"></i></a>&nbsp;
+                                        <a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deleteNAAC($index, 'iqac')"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="aqar" role="tabpanel" aria-labelledby="aqar-tab">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">AQAR File</label>
+                            <div id="spnMsg" ng-show="isShowMsg" style="margin-bottom:15px; margin-top:15px;"></div>
+                            <table id="tbl" style="width:100%">
+                                <tr>
+                                    <td style="width:100%"><input type="file" id="aqar_attach_filename" name="aqar_attach_filename" class="form-control" autocomplete="off" style="max-width: 100%;"></td>
+                                    <td><button type="button" class="btn btn-default btnf" ng-click="UploadNaacFile('aqar')">Upload</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <table id="tbliqac_attach_filename" style="width:100%" ng-show="AQAR.length > 0">
+                                <tr>
+                                    <th>#</th>
+                                    <th>File Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr ng-repeat="upd in AQAR track by $index">
+                                    <td>{{$index+1}}.</td>
+                                    <td>{{upd.bloborgname}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><i class="fa fa-download" ng-click="downloadFile(upd.blobname)"></i></a>&nbsp;
+                                        <a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deleteNAAC($index, 'aqar')"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ssr" role="tabpanel" aria-labelledby="ssr-tab">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">SSR File</label>
+                            <div id="spnMsg" ng-show="isShowMsg" style="margin-bottom:15px; margin-top:15px;"></div>
+                            <table id="tbl" style="width:100%">
+                                <tr>
+                                    <td style="width:100%"><input type="file" id="ssr_attach_filename" name="ssr_attach_filename" class="form-control" autocomplete="off" style="max-width: 100%;"></td>
+                                    <td><button type="button" class="btn btn-default btnf" ng-click="UploadNaacFile('ssr')">Upload</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <table id="tbliqac_attach_filename" style="width:100%" ng-show="SSR.length > 0">
+                                <tr>
+                                    <th>#</th>
+                                    <th>File Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr ng-repeat="upd in SSR track by $index">
+                                    <td>{{$index+1}}.</td>
+                                    <td>{{upd.bloborgname}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><i class="fa fa-download" ng-click="downloadFile(upd.blobname)"></i></a>&nbsp;
+                                        <a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deleteNAAC($index, 'ssr')"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="agendaminutes" role="tabpanel" aria-labelledby="ssr-tab">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Agenda and Minutes File</label>
+                            <div id="spnMsg" ng-show="isShowMsg" style="margin-bottom:15px; margin-top:15px;"></div>
+                            <table id="tbl" style="width:100%">
+                                <tr>
+                                    <td style="width:100%"><input type="file" id="agendaminutes_attach_filename" name="agendaminutes_attach_filename" class="form-control" autocomplete="off" style="max-width: 100%;"></td>
+                                    <td><button type="button" class="btn btn-default btnf" ng-click="UploadNaacFile('agendaminutes')">Upload</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <table id="tbliqac_attach_filename" style="width:100%" ng-show="AgendaMinutes.length > 0">
+                                <tr>
+                                    <th>#</th>
+                                    <th>File Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr ng-repeat="upd in AgendaMinutes track by $index">
+                                    <td>{{$index+1}}.</td>
+                                    <td>{{upd.bloborgname}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)"><i class="fa fa-download" ng-click="downloadFile(upd.blobname)"></i></a>&nbsp;
+                                        <a href="javascript:void(0)"><i class="fa fa-trash" ng-click="deleteNAAC($index, 'agendaminutes')"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Page Content-->
+        <hr />
+        @Html.Partial("_SavePanel")
+
+        <!-- Modal -->
+        <div class="modal fade" id="errorModel" role="dialog" style="z-index:99999">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Error</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 16px;">Please check your uploaded file extension. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnClose" class="btn btn-default" ng-click="closeErrorDialog()">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+@section botscripts{
+    <script type="text/javascript">
+        rsApp.controller('FormController', function ($scope, $http, usSpinnerService) {
+            $scope.model = JSON.parse($("#model_json").val());
+            $scope.status = 'loaded';
+
+            var loadmodel = function (result) {
+                $scope.model = result;
+                //Set Page Heading
+                $scope.title = ($scope.model.frmMode == 2 ? "Add" : $scope.model.frmMode == 1 ? "Edit" : "");
+                //Show Hide Delete Buttons
+                $scope.visdel = ($scope.model.frmMode == 2 ? false : true);
+                //set NAAC Model in scope
+                $scope.naacInfo = $scope.model.dsForm.DT[0];
+                //Drop Downs
+                $scope.company = $scope.model.dsCombo.Company;
+                $scope.session = $scope.model.dsCombo.Session;
+                //Bind Dropdown in edit mode
+                $scope.naacInfo.CompanyIDSelected = $.grep($scope.company, function (item, index) { return item.Companyid == $scope.model.dsForm.DT[0].CompanyID })[0];
+                $scope.naacInfo.FinyearIDSelected = $.grep($scope.session, function (item, index) { return item.finyearid == $scope.model.dsForm.DT[0].FinyearID })[0];
+
+                $scope.IQAC = [];
+                $scope.AQAR = [];
+                $scope.SSR = [];
+                $scope.AgendaMinutes = [];
+
+                if ($scope.model.dsForm.DT[0].IQAC != undefined) {
+                    $scope.IQAC = JSON.parse($scope.model.dsForm.DT[0].IQAC);
+                }
+                if ($scope.model.dsForm.DT[0].AQAR != undefined) {
+                    $scope.AQAR = JSON.parse($scope.model.dsForm.DT[0].AQAR);
+                }
+                if ($scope.model.dsForm.DT[0].SSR != undefined) {
+                    $scope.SSR = JSON.parse($scope.model.dsForm.DT[0].SSR);
+                }
+                if ($scope.model.dsForm.DT[0].AgendaMinutes != undefined) {
+                    $scope.AgendaMinutes = JSON.parse($scope.model.dsForm.DT[0].AgendaMinutes);
+                }
+            }
+
+            loadmodel($scope.model);
+
+            //Delete Records
+            $scope.GenerateDelPayload = function () {
+                //Pass the EntityKey in lowercase
+                var payload = { EntityKey: 'naac', ID: $scope.model.dsForm.DT[0].NaacID, AcceptWarning: false };
+                return payload;
+            };
+
+            $scope.UploadNaacFile = function (type) {
+                $("div.spinnerTarget").addClass("backdrop");
+                $("body").css("overflow", "hidden");
+                usSpinnerService.spin('spinner-1');
+
+                var fileExtn = '';
+                var ctrlName = '';
+                var hdnControl = '';
+                var statusType = '';
+
+                if (type == 'iqac') {
+                    fileExtn = $('#iqac_attach_filename').val().split('.').pop().toLowerCase();
+                    // For Progress baar
+                    ctrlName = $('#iqac_attach_filename');
+                    filec = $('#iqac_attach_filename').val();
+                    hdnControl = 'iqac_attach_filename';
+                    statusType = 'iqacStatus';
+                }
+                if (type == 'aqar') {
+                    fileExtn = $('#aqar_attach_filename').val().split('.').pop().toLowerCase();
+                    // For Progress baar
+                    ctrlName = $('#aqar_attach_filename');
+                    filec = $('#aqar_attach_filename').val();
+                    hdnControl = 'aqar_attach_filename';
+                    statusType = 'aqarStatus';
+                }
+                if (type == 'ssr') {
+                    fileExtn = $('#ssr_attach_filename').val().split('.').pop().toLowerCase();
+                    // For Progress baar
+                    ctrlName = $('#ssr_attach_filename');
+                    filec = $('#ssr_attach_filename').val();
+                    hdnControl = 'ssr_attach_filename';
+                    statusType = 'ssrStatus';
+                }
+                if (type == 'agendaminutes') {
+                    fileExtn = $('#agendaminutes_attach_filename').val().split('.').pop().toLowerCase();
+                    // For Progress baar
+                    ctrlName = $('#agendaminutes_attach_filename');
+                    filec = $('#agendaminutes_attach_filename').val();
+                    hdnControl = 'agendaminutes_attach_filename';
+                    statusType = 'agendaminutesStatus';
+                }
+
+                if (fileExtn !== "doc" && fileExtn  !== "docx" && fileExtn !== "ppt" && fileExtn !== "pptx" && fileExtn !== "pdf" && fileExtn !== "jpeg" && fileExtn !== "jpg" && fileExtn !== "png" && fileExtn !== "mkv" && fileExtn !== "mp4" && fileExtn !== "wav" && fileExtn !== "3gp" && fileExtn !== "wmv" && fileExtn !== "wma" && fileExtn !== "flv") {
+                    $('#errorModel').modal('toggle');
+                    $scope.isbtnAttachmentUpload = "";
+                    return false;
+                }
+
+                var url = '/frmNAAC/ParamsOutput' + location.search;
+                var payload = { filename: filec };
+                payload = JSON.stringify(payload);
+                var payloaddata = { key: 'sas', Params: payload, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() };
+                // generic upload function
+                $scope.UploadFile(url, payloaddata, true, ctrlName, hdnControl, statusType);
+            }
+
+            $scope.calculatemodel = function () {
+                if ($scope.IQAC.length > 0)
+                    $scope.model.dsForm.DT[0].IQAC = JSON.stringify($scope.IQAC);
+                if ($scope.AQAR.length > 0)
+                    $scope.model.dsForm.DT[0].AQAR = JSON.stringify($scope.AQAR);
+                if ($scope.SSR.length > 0)
+                    $scope.model.dsForm.DT[0].SSR = JSON.stringify($scope.SSR);
+                if ($scope.AgendaMinutes.length > 0)
+                    $scope.model.dsForm.DT[0].AgendaMinutes = JSON.stringify($scope.AgendaMinutes);
+            }
+
+            $scope.deleteNAAC = function (index, type) {
+                if (type == 'iqac') { $scope.IQAC.splice(index, 1); };
+                if (type == 'aqar') { $scope.AQAR.splice(index, 1); };
+                if (type == 'ssr') { $scope.SSR.splice(index, 1); };
+                if (type == 'agendaminutes') { $scope.AgendaMinutes.splice(index, 1); };
+            }
+
+            $scope.downloadFile = function (filename) {
+                $scope.download('frmNAAC', filename);
+            };
+
+            $scope.cleanupmodel = function (datamodel) { };
+
+            @Html.RenderFile("~/scripts/uploadCollegeFiles.js");
+            @Html.RenderFile("~/scripts/rsforms.js");
+        });
+    </script>
+}

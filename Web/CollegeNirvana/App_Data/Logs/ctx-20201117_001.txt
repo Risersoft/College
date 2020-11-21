@@ -1,0 +1,24 @@
+2020-11-17 15:45:27.134 +05:30 [INF] Disposing
+2020-11-17 15:47:52.817 +05:30 [INF] 15:47:52: Start Init App List Model
+2020-11-17 15:47:54.422 +05:30 [INF] apps:54
+2020-11-17 15:47:54.424 +05:30 [INF] id:620
+2020-11-17 15:47:54.426 +05:30 [INF] ent:43
+2020-11-17 15:47:54.427 +05:30 [INF] nav:267
+2020-11-17 15:47:54.428 +05:30 [INF] viewdefs:2318
+2020-11-17 15:47:54.430 +05:30 [INF] frmprn:955
+2020-11-17 15:47:54.431 +05:30 [INF] workflow:51
+2020-11-17 15:47:54.432 +05:30 [INF] browse:102
+2020-11-17 15:47:54.433 +05:30 [INF] filt:747
+2020-11-17 15:47:54.434 +05:30 [INF] filtval:5
+2020-11-17 15:47:54.435 +05:30 [INF] wftrans:4
+2020-11-17 15:47:54.437 +05:30 [INF] wfelem:190
+2020-11-17 15:47:54.438 +05:30 [INF] appsystem:0
+2020-11-17 15:47:54.439 +05:30 [INF] permission:0
+2020-11-17 15:47:54.451 +05:30 [INF] Appdata obtained, AppsystemCount = 1 
+2020-11-17 15:47:54.515 +05:30 [INF] AppDBFileName rs found in cache
+2020-11-17 15:47:54.554 +05:30 [INF] Looking for unmerged app system 
+2020-11-17 15:47:54.556 +05:30 [INF] Appsystem copied
+2020-11-17 15:47:54.578 +05:30 [INF] Finish Populate Security
+2020-11-17 15:47:54.620 +05:30 [INF] Finish Populate Login Person
+2020-11-17 15:47:54.659 +05:30 [INF] 15:47:54: End Init App List Model
+2020-11-17 15:49:11.082 +05:30 [INF] Disposing

@@ -1,0 +1,265 @@
+﻿<Schema connectioncode="" connectiontype="Source" createdby="user">
+  <RecordTypes>
+    <RecordType Name="Examdet Template">
+      <Fields>
+        <Field Name="FormNum">
+          <Name>FormNum</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Form No</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ExamRollNum">
+          <Name>ExamRollNum</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Roll No</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="StudentType">
+          <Name>StudentType</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Student Type</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="EnrollmentNum">
+          <Name>EnrollmentNum</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Enrollment No</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="RegistrationNum">
+          <Name>RegistrationNum</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Registration No</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="FullName">
+          <Name>FullName</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Candidate Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Birthday">
+          <Name>Birthday</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Birth Date</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="IsFemale">
+          <Name>IsFemale</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Gender</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Category">
+          <Name>Category</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Category</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="FatherName">
+          <Name>FatherName</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Father Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="MotherName">
+          <Name>MotherName</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Mother Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject1">
+          <Name>Subject1</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Subject Name-1</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject2">
+          <Name>Subject2</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Subject Name-2</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject3">
+          <Name>Subject3</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Subject Name-3</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject4">
+          <Name>Subject4</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Subject Name-4</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject5">
+          <Name>Subject5</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Subject Name-5</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper1">
+          <Name>Paper1</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-1</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper2">
+          <Name>Paper2</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-2</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper3">
+          <Name>Paper3</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-3</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper4">
+          <Name>Paper4</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-4</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper5">
+          <Name>Paper5</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-5</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper6">
+          <Name>Paper6</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-6</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper7">
+          <Name>Paper7</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-7</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper8">
+          <Name>Paper8</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-8</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper9">
+          <Name>Paper9</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-9</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper10">
+          <Name>Paper10</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-10</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Paper11">
+          <Name>Paper11</Name>
+          <RecordType>Examdet Template</RecordType>
+          <Description>Paper Code-11</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="WarningCode">
+          <Name>WarningCode</Name>
+          <RecordType>Vendor Master</RecordType>
+          <Description>Warning Codes</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="WarningText">
+          <Name>WarningText</Name>
+          <RecordType>Vendor Master</RecordType>
+          <Description>Warning Descriptions</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ErrorCode">
+          <Name>ErrorCode</Name>
+          <RecordType>Vendor Master</RecordType>
+          <Description>Error Codes</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ErrorText">
+          <Name>ErrorText</Name>
+          <RecordType>Vendor Master</RecordType>
+          <Description>Error Descriptions</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+      </Fields>
+      <ValidationExpressions />
+      <Name>Examdet Template</Name>
+      <Config Ignore="False" IgnoreRows="2" />
+    </RecordType>
+    <RecordType Name="Look_Up_Values">
+      <Fields />
+      <ValidationExpressions />
+      <Name>Look_Up_Values</Name>
+      <Config Ignore="False" />
+    </RecordType>
+  </RecordTypes>
+</Schema>

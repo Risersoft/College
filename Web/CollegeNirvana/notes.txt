@@ -1,0 +1,7 @@
+﻿TODO:
+
+- Make collage from event and acitivity media list, and use it in the frontend event listing
+Ref https://github.com/piotrosz/Collage/blob/master/Collage.Engine/CollageGenerator.cs
+
+
+- Make CollegeControllerBase and TrustControllerBase part of klts.app.mxform.admin, so that any college front end website can use it.

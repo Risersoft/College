@@ -1,0 +1,46 @@
+﻿@using risersoft.shared
+@{
+    ViewData["Title"] = "Home Page";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/').ToString();
+    var banner = GlobalCore.GetConfigSetting("banner");
+    if (string.IsNullOrWhiteSpace(banner)) { banner = "/Content/images/CollegeNirvana-front.jpg"; }
+    else { banner = baseUrl + banner; }
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <img src="@banner" class="img-fluid img-responsive banner-img">
+    </div>
+    <div class="col-md-3 gst-banner-text">
+        <h1 class="gst-banner-text-title">CollegeNirvana</h1>
+        <p class="lead gst-banner-text-para">Effortless College Management.</p>
+        <p> <a href="/App" class="btn btn-primary btn-lg">Start Now &raquo;</a></p>
+    </div>
+</div>
+<div> <br /><br /></div>
+<div class="row clsimgb">
+    <div class="col-md-3 footer-nav footer-text">
+        <div class="clsfoot">
+            <h2> Student Records</h2>
+            <p> Capture numerous pieces of information about the student through pre-built functions.</p>
+        </div>
+    </div>
+    <div class="col-md-3 footer-nav footer-text">
+        <div class="clsfoot">
+            <h2> Time & Attendance</h2>
+            <p> Track time and attendance of the students on campus and in remote locations.</p>
+        </div>
+    </div>
+    <div class="col-md-3 footer-nav footer-text">
+        <div class="clsfoot">
+            <h2> Admissions & Results</h2>
+            <p> Handle admission and result processing comprehensively, and yet simplistically.</p>
+        </div>
+    </div>
+    <div class="col-md-3 footer-text">
+        <div class="clsfoot">
+            <h2> Multi Platform</h2>
+            <p> Securely access your cloud hosted data from desktop and mobile.</p>
+        </div>
+    </div>
+</div>

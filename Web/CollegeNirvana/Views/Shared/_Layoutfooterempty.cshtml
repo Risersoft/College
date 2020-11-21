@@ -1,0 +1,47 @@
+﻿@using risersoft.shared.web
+@using risersoft.shared.agent
+@using risersoft.shared.agent.Auth
+
+@{
+    var _user = AuthUtils.GetRSUser(this.User);
+    var ctx = ((IHostedController)ViewContext.Controller).myWebController as clsWebControllerMvc;
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/').ToString();
+    string logo = baseUrl + "/account/logo";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License</title>
+</head>
+<body ng-app="rsApp">
+    <div class="top-line">&nbsp;</div>
+    <div class="top-header">
+        <div Class="container" style="padding-left:6px;">
+            <div Class="pull-left">
+                <img src="@logo" class="responimg cursorpoint" alt="@ctx.CalcHost().Brand Portal" />
+            </div>
+        </div>
+    </div>
+    <div Class="container body-content clsborder">
+        @RenderBody()
+    </div>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/moment.js"></script>
+    <link href="~/Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jqueryui")
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/angular")
+    <link href="~/Scripts/Intl-Tel-Input/css/intlTelInput.css" rel="stylesheet" />
+    <script src="~/Scripts/Intl-Tel-Input/js/intlTelInput.js"></script>
+    <script src="~/Scripts/Intl-Tel-Input/js/utils.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

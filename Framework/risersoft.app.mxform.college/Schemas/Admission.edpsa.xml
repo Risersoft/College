@@ -1,0 +1,273 @@
+﻿<Schema connectioncode="" connectiontype="Source" createdby="user">
+  <RecordTypes>
+    <RecordType Name="Admission Template">
+      <Fields>
+        <Field Name="AdmittedAs">
+          <Name>AdmittedAs</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Admitted As</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="AdmissionType">
+          <Name>AdmissionType</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Admission Type</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ListNumber">
+          <Name>ListNumber</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>ListNumber</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="DegreeCourse">
+          <Name>DegreeCourse</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Course</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="SubjectGroup">
+          <Name>SubjectGroup</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Subject Group</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject1">
+          <Name>Subject1</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Subject 1</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject2">
+          <Name>Subject2</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Subject 2</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Subject3">
+          <Name>Subject3</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Subject 3</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="RegistrationNum">
+          <Name>RegistrationNum</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Registration No</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="FullName">
+          <Name>FullName</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Candidate Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="IsFemale">
+          <Name>IsFemale</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Gender</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Birthday">
+          <Name>Birthday</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>DOB</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="AgeYears">
+          <Name>AgeYears</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Age Years</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="FatherName">
+          <Name>FatherName</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Father Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="MotherName">
+          <Name>MotherName</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Mother Name</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="CellNum">
+          <Name>CellNum</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Mobile</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="PrPhone">
+          <Name>PrPhone</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Alt Phone</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Email">
+          <Name>Email</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Email</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Aadhar">
+          <Name>Aadhar</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>AADHAAR</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="AadharEnrollment">
+          <Name>AadharEnrollment</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>AADHAAR Enrollment</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="PrAddress">
+          <Name>PrAddress</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Corresponding Address</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Category">
+          <Name>Category</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Category</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="Reservation">
+          <Name>Reservation</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Reservation</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="True" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="EWS">
+          <Name>EWS</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>EWS</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="XthMarksSheetSerial">
+          <Name>XthMarksSheetSerial</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Xth Marks Sheet Serial</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="XthPassYear">
+          <Name>XthPassYear</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Xth Pass Year</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="XIIthRollNum">
+          <Name>XIIthRollNum</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>XIIth Roll No.</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="NADNumber">
+          <Name>NADNumber</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>NAD Number</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="1" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="WarningCode">
+          <Name>WarningCode</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Warning Codes</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="WarningText">
+          <Name>WarningText</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Warning Descriptions</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ErrorCode">
+          <Name>ErrorCode</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Error Codes</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+        <Field Name="ErrorText">
+          <Name>ErrorText</Name>
+          <RecordType>Admission Template</RecordType>
+          <Description>Error Descriptions</Description>
+          <DataType>Text</DataType>
+          <Size>0</Size>
+          <Config DefaultExpr="" Level="2" Mandatory="False" PadChar=" " Alignment="Left" />
+        </Field>
+      </Fields>
+      <ValidationExpressions />
+      <Name>Admission Template</Name>
+      <Config Ignore="False" IgnoreRows="2" />
+    </RecordType>
+    <RecordType Name="Look_Up_Values">
+      <Fields />
+      <ValidationExpressions />
+      <Name>Look_Up_Values</Name>
+      <Config Ignore="False" />
+    </RecordType>
+  </RecordTypes>
+</Schema>
